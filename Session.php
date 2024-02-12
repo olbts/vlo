@@ -24,5 +24,4 @@ class Session
         
         return $this->id;
     }
-
 }
