@@ -1,11 +1,12 @@
 <?php
 
-
+require "models/client.php";
+require "models/panier.php";
 
 if (isset($_POST["email"])&&isset($_POST["password"])) {
-   
+
     
-$errors = [];
+    $errors = [];
 
     if (! $verif::email($_POST['email'])) {
         $errors['email'] = 'Adresse email invalide.';
@@ -16,43 +17,27 @@ $errors = [];
     if (empty($errors)) {
         $email = $_POST["email"];
         $password = $_POST["password"];
+    
        
    
-    $test = $db->fetch("Select * from utilisateur where email = :email "
-    ,[
-        ":email"=>$email,
-        
-    ]);
+    $client = getClient($_POST["email"],$db);
+   
     
-    if (empty($test["password"]) || empty($test["email"])) {
+    if (empty($client)) {
         $currentEmail = $_POST["email"];
-        
         $errors['password'] = 'Mot de passe incorrect';
         require "controllers/connexion/index.php";
-
     }
     
-    else if (password_verify($password,$test["password"])) {
-        $session->setSession($test["email"]);
-        $id_panier =  $db->fetch("SELECT panier.id_panier from panier,utilisateur where  panier.id_utilisateur = utilisateur.id_utilisateur AND utilisateur.email =:email AND panier.actif = 1;"
-    ,[
-       
-        ":email" =>  $_SESSION["email"],
-        
-    ])["id_panier"];
-    
-        foreach ($_SESSION["panier"] as $panier) {
-            $db->insert("INSERT INTO `livre_panier`( `id_panier`, `id_livre`, `qte`,`prix`) VALUES (:id_panier,:id_livre,:qte,:prix) "
-,[
-    ":id_panier"=>$id_panier,
-    ":id_livre"=>$panier["id_livre"],
-    ":qte"=> $panier["qte"],
-    ":prix"=>$panier["prix"],]);
-        }
+    else if (password_verify($_POST["password"],$client["password"])) {
+        $_SESSION["email"] = $client["email"];
+       foreach ($_SESSION["panier"] as $panier) {
+            insertPanier($client["email"],$panier["isbn"],$panier["qte"],$db);
+       }
     
         echo "<script>window.location.replace('index.php?page=/')</script>";
-    
-    } else {
+    } 
+    else {
         $currentEmail = $_POST["email"];
         $errors['password'] = 'Mot de passe incorrect';
         
@@ -60,12 +45,21 @@ $errors = [];
     }
     
     }
+    else {
+        $errors['password'] = "Une erreur s'est produite";
+        
+        require "controllers/connexion/index.php";
     }
-    else{
-       //je sais pas quoi mettre ici 
-       echo "une erreur s'est produite" ;
     }
+    
    
+
+
+
+
+
+
+
 
 
 

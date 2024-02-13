@@ -15,7 +15,7 @@
       <form class="row g-2" method="post"action="index.php?page=/storeUser">
   <div class="col-12">
     <label for="inputEmail4" class="form-label">Adresse Email : </label>
-    <input type="email" class="form-control" id="inputEmail4" name="emaill" value='<?= $currentEmail ??""?>'>
+    <input type="email" class="form-control" id="inputEmail4" name="email" value='<?= $currentEmail ??""?>'>
   </div>
   
   <div class="col-12"><?php if (isset($errors["email"])) {
@@ -32,11 +32,11 @@
   </div> -->
   <div class="col-6">
     <label for="inputPassword4" class="form-label">Mot de passe : </label>
-    <input type="password" class="form-control" id="inputPassword4" name="passwordd">
+    <input type="password" class="form-control" id="inputPassword4" name="password">
   </div>
   <div class="col-6 ">
     <label for="inputPassword5" class="form-label">Confirmer Mot de passe : </label>
-    <input type="password" class="form-control" id="inputPassword5" name="passworddd">
+    <input type="password" class="form-control" id="inputPassword5" name="password2">
   </div>
   
   <div class="col-12">

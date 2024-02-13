@@ -18,7 +18,7 @@
             <div class="col-4 p-5">
             
             <form action="index.php?page=/storeCart" method="post" class="border border-info me-3 text-center">
-            <input type="hidden" name="titre" value="<?=$titre?>">
+            <input type="hidden" name="isbn" value="<?=$isbn?>">
             <input type="hidden" id="joy" name="prix" value="<?=$article["prix"]?>">
             <h2 class=" mt-4 "><span class="prix"><?= $article["prix"]?></span>$</h2>
             <p class="text-success mt-2">En stock</p>

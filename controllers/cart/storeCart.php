@@ -1,21 +1,28 @@
 <?php
 
-if (isset($_SESSION["email"])) {
-    $infos =  $db->fetch("SELECT panier.id_panier,livre.id_livre from livre,panier,utilisateur where livre.titre = :titre AND panier.id_utilisateur = utilisateur.id_utilisateur AND utilisateur.email =:email AND panier.actif = 1;"
-    ,[
-        ":titre" => $_POST["titre"],
-        ":email" =>  $_SESSION["email"],
+require "models/panier.php";
+require "models/livre.php";
+
+if (estConnecte()) {
+    //on recupere de la session l email et du form l isbn
+
+    // $infos =  $db->fetch("SELECT panier.id_panier,livre.id_livre from livre,panier,utilisateur where livre.titre = :titre AND panier.id_utilisateur = utilisateur.id_utilisateur AND utilisateur.email =:email AND panier.actif = 1;"
+    // ,[
+    //     ":titre" => $_POST["titre"],
+    //     ":email" =>  $_SESSION["email"],
         
-    ]);
-   
-    $db->insert("INSERT INTO `livre_panier`( `id_panier`, `id_livre`, `qte`,`prix`) VALUES (:id_panier,:id_livres,:qte,:prix) "
-,[
-    ":id_panier"=>$infos["id_panier"],
-    ":id_livres"=>$infos["id_livre"],
-    ":qte"=> $_POST["qte"],
-    ":prix"=>$_POST["prix"],
-]);
-}
+    // ]);
+    $panier = getPanier($_POST["isbn"],$db);
+    if(!empty($panier)){
+        updateQtePanier($_POST["qte"],$_SESSION["email"],$_POST["isbn"],$db);
+    }
+    else{
+        insertPanier($_SESSION["email"],$_POST["isbn"],$_POST["qte"],$db);
+    }
+    
+    $_SESSION["nb_panier"] = taillePanier($_SESSION["email"],$db);
+
+   }
 else{
     $prix_total = $_POST["qte"] * $_POST["prix"];
     $in = false;
@@ -47,10 +54,7 @@ else{
     $_SESSION["nb_panier"] = sizeof($_SESSION["panier"]);
     
 }
-$db->query("UPDATE `livre` SET populaire = populaire + :qte WHERE titre = :titre;",[
-    ":titre" => $_POST["titre"],
-    ":qte" => $_POST["qte"],
-]);
+updatePopulaireLivre($_POST["qte"],$_POST["isbn"],$db);
  //faudra avec un try & catch
  $ajouter = true;
 $lien = "/storeCart";

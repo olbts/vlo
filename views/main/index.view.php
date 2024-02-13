@@ -20,7 +20,7 @@
             <?php foreach ($livres->getArticles() as $key => $value) :    ?>
         <div class="col "> 
         <a href="<?= url("/article",[
-                        "titre" => $value["titre"],
+                        "isbn" => $value["isbn"],
                     ])?>" class="bref">
             <div class="card   h-100">
             <div class="non ">

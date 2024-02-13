@@ -37,7 +37,7 @@
                        
                         <td><span><?= $produit["prix"] ?></span>$</td>
                         <td><form action="index.php?page=/destroyCart" method="post">
-                          <input type="hidden" name="titre" value ="<?= $produit["titre"]?>">
+                          <input type="hidden" name="isbn" value ="<?= $produit["isbn"]?>">
                         <input type="submit" value="X" class="btn btn-outline-danger">
                         </form></td>
                         </tr>

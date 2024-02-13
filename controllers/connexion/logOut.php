@@ -1,8 +1,8 @@
 <?php 
 
 if (isset($_POST["destroy"])) {
-    $session::destroy();
-    // session_unset();
+    
+    unset($_SESSION["email"]);
    
     echo "<script>window.location.replace('index.php')</script>";
 }

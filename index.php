@@ -5,7 +5,8 @@ require "Article.php";
 require "Session.php";
 require "functions.php";
 require "routes.php";
-$db = new Database();
+
+$db = Database::getPdoGsb();
 $session = new Session();
 $verif = new Verification();
 if(empty($_SESSION["nb_panier"])){

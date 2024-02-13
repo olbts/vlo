@@ -1,16 +1,13 @@
 <?php
 
+require "models/livre.php";
 $title = "article";
 $page = "article";
 
-    $titre = $_GET["titre"] ;
+    $isbn = $_GET["isbn"] ;
 
 
 
-$article = $db->fetch("Select * from livre where titre = :titre "
-,[
-    ":titre"=> $titre,
-    
-]);
+$article = getLivre($_GET["isbn"],$db);
 
 require "views/main/article.view.php";

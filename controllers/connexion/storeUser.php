@@ -1,67 +1,42 @@
 <?php
+require "models/client.php";
+require "models/panier.php";
 
-if (isset($_POST["emaill"])&&isset($_POST["passwordd"])) {
+if (isset($_POST["email"])&&isset($_POST["password"])&&isset($_POST["password2"])) {
    
     
     $errors = [];
     
-        if (! $verif::email($_POST['emaill'])) {
+        if (! $verif::email($_POST['email'])) {
             $errors['email'] = 'Adresse email invalide.';
             
             
         }
-        if (! $verif::password($_POST['passwordd'])) {
+        if (! $verif::password($_POST['password'])) {
             $errors['password'] = '8 caracteres minimum, dont une majuscule,une minuscule,un chiffre et un caractere special';
             
            
         }
-        if (! $verif::equalPassword($_POST['passwordd'],$_POST['passworddd'])) {
+        if (! $verif::equalPassword($_POST['password'],$_POST['password'])) {
             $errors['equalPassword'] = 'Les mots de passe ne correspondent pas ';
             
             
         }
-        $test = $db->fetch("Select * from utilisateur where email = :email "
-    ,[
-        ":email"=>$_POST["emaill"],
-        
-    ]);
-        if ( !empty($test["email"])) {
+        $client = getClient($_POST["email"],$_POST["password"],$db);
+        if ( !empty($client)) {
            
-            $errors['email'] = 'Adresse email deja prise';}
-        
+            $errors['email'] = 'Adresse email deja prise';
+        }
+        $errors = [];   
         if (empty($errors)) {
-            $email = $_POST["emaill"];
-            $password=$_POST["passwordd"];
-            $crypted = password_hash($password,PASSWORD_DEFAULT);
-            $db->insert("INSERT INTO `utilisateur`( `email`, `password`) VALUES (:email,:password) "
-            ,[
-                ":email"=>$email,
-                ":password"=>$crypted,
-            ]); 
-        $id_utilisateur = $db->lastInsertid();
-        $db->insert("INSERT INTO `panier`(  `id_utilisateur`) VALUES (:id_user) "
-            ,[
-                
-                ":id_user"=>$id_utilisateur,
-            ]); 
-        $id_panier = $db->lastInsertid();
-        
-        
+            $email = $_POST["email"];
+            $crypted = password_hash($_POST["password"],PASSWORD_DEFAULT);
+            insertClient(($_POST["email"]),$crypted,$db);
             foreach ($_SESSION["panier"] as $panier) {
-                $db->insert("INSERT INTO `livre_panier`( `id_panier`, `id_livre`, `qte`,`prix`) VALUES (:id_panier,:id_livre,:qte,:prix) "
-    ,[
-        ":id_panier"=>$id_panier,
-        ":id_livre"=>$panier["id_livre"],
-        ":qte"=> $panier["qte"],
-        ":prix"=>$panier["prix"],]);
-            }
-            
-            $session->setSession($email);
-           
+                insertPanier($_POST["email"],$panier["isbn"],$panier["qte"],$db);
+           }
+           $_SESSION["email"] = $_POST["email"];
             echo "<script>window.location.replace('index.php?page=/')</script>";
-    
-            
-            
         } else {
             $currentEmail = $_POST["emaill"];
             require "controllers/connexion/register.php";

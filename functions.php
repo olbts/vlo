@@ -84,12 +84,8 @@ function checked($array,$value){
     }
     
 }
-function sql(){
-    $SQL = [
-        "idPanieridUser" => "SELECT panier.id_panier,users.id_user from panier,users where   panier.id_user = users.id_user AND users.email =:email AND panier.current = 1;",
-"ajouterCommande" => "INSERT INTO `commande`(  `id_panier`,moyen,date) VALUES (:id_panier,:moyen,:date) ",
-"updateCurrentPanier" => "UPDATE `panier` SET current = 0 WHERE id_panier = :id_panier;",
-"nouveauPanier" => "INSERT INTO `panier`(  `id_user`) VALUES (:id_user) ",
-    ];
-    return $SQL;
+
+function estConnecte()
+{
+    return isset($_SESSION['email']);
 }
