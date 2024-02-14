@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-9 ">
+        <div class="col-12 col-md-9">
                 
                     <?php if($panier->set()): ?>
                       <table class="table ">
@@ -26,16 +26,13 @@
                     <tbody>
                                         <?php foreach ($panier->getArticles() as $key => $produit) : ?>
                                             <tr >
-                        <th scope="row"><img src="<?= img("gaga")?>" class="img-fluid rounded-start" alt="..." style="width:75px;"></th>
+                       
+                        <th scope="row"><img src="<?= img("gaga")?>" class=" panier_img " alt="..." style="width:60px;"></th>
                         <td><?= $produit["titre"]?></td>
                         <td><?php if(isset($produit["auteur"])){
-                            echo $produit["auteur"];
-                        } 
-                        // else{
-                        //     echo "John Doe";}?></td>
+                            echo $produit["auteur"];} ?></td>
                         <td><?= $produit["qte"] ?></td>
-                       
-                        <td><span><?= $produit["prix"] ?></span>$</td>
+                        <td><span><?= $produit["prixtotal"] ?></span>$</td>
                         <td><form action="index.php?page=/destroyCart" method="post">
                           <input type="hidden" name="isbn" value ="<?= $produit["isbn"]?>">
                         <input type="submit" value="X" class="btn btn-outline-danger">
@@ -58,7 +55,7 @@
         </div>
      
 
-<div class="col-3  p-5   text-center">
+<div class="col-12 col-md-3  p-5   text-center">
 <h2 class=" mt-4 mb-3"><span class="prix"><?= $prixtotal??"0"   ?></span>$</h2>
                 
     <?php 

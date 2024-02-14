@@ -9,5 +9,4 @@ $page = "article";
 
 
 $article = getLivre($_GET["isbn"],$db);
-
 require "views/main/article.view.php";

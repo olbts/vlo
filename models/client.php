@@ -11,7 +11,7 @@ function getClient($email,$pdo){
     $requetePrepare->bindParam(':email', $email, PDO::PARAM_STR);
     
     $requetePrepare->execute();
-    return $requetePrepare->fetch();
+    return $requetePrepare->fetch(PDO::FETCH_ASSOC);
 }
 function insertClient($email,$password,$pdo){
     $requetePrepare = $pdo->prepare(

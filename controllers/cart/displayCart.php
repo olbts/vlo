@@ -15,6 +15,7 @@ if (estConnecte()){
     $prixtotal = getPrixPanier($_SESSION["email"],$db);
     $_SESSION["nb_panier"] = taillePanier($_SESSION["email"],$db);
     
+    
     // $prixtotal = $db->fetch('SELECT SUM(livre_panier.prix) AS prixtotal FROM `livre_panier` , panier,utilisateur,livre WHERE livre_panier.id_panier = panier.id_panier and utilisateur.email = :email AND livre.id_livre = livre_panier.id_livre AND utilisateur.id_utilisateur = panier.id_utilisateur and panier.actif = 1;',[
     //     ":email" => $_SESSION["email"],
     // ]
@@ -22,7 +23,8 @@ if (estConnecte()){
     // ;
 }
 else{
-   
+    $in = implode(",", $_SESSION['panier']);
+    dd($in);
     $panier->setArticles($_SESSION["panier"]);
   
     $prixtotal = $_SESSION["prix_panier"];

@@ -22,7 +22,7 @@ if (isset($_POST["email"])&&isset($_POST["password"])&&isset($_POST["password2"]
             
             
         }
-        $client = getClient($_POST["email"],$_POST["password"],$db);
+        $client = getClient($_POST["email"],$db);
         if ( !empty($client)) {
            
             $errors['email'] = 'Adresse email deja prise';
@@ -32,13 +32,15 @@ if (isset($_POST["email"])&&isset($_POST["password"])&&isset($_POST["password2"]
             $email = $_POST["email"];
             $crypted = password_hash($_POST["password"],PASSWORD_DEFAULT);
             insertClient(($_POST["email"]),$crypted,$db);
-            foreach ($_SESSION["panier"] as $panier) {
-                insertPanier($_POST["email"],$panier["isbn"],$panier["qte"],$db);
-           }
+            if(!empty($_SESSION["panier"])){
+                foreach ($_SESSION["panier"] as $panier) {
+                    insertPanier($_POST["email"],$panier["isbn"],$panier["qte"],$db);
+                }
+            }
            $_SESSION["email"] = $_POST["email"];
             echo "<script>window.location.replace('index.php?page=/')</script>";
         } else {
-            $currentEmail = $_POST["emaill"];
+            $currentEmail = $_POST["email"];
             require "controllers/connexion/register.php";
             
         }

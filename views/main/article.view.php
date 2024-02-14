@@ -5,17 +5,26 @@
         <h5 class="bg-success text-light text-opacity-5">Votre livre a bien été ajouté au panier</h5>
     <?php endif ?>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-4  ">
-                <img src="<?=img("gaga")?>" alt="voila" class="m-5" style="width:250px;">
+        <style>
+            .img_article{
+                width: 80%;
+               
+            }
+        </style>
+        <div class="row ">
+            <div class="col-12 col-md-4  ">
+                <img src="<?=img("gaga")?>" alt="voila" class="m-5 img_article">
             </div>
-            <div class="col-4 p-5">
-            <h2> <?= $article["titre"]?></h2>
-            <h5> <?= $article["prix"]?>$</h5>
-            <h6>Auteur : <?= $article["auteur"]?></h6>
-            <h6>Style : <?= $article["style"]?></h6>
+            <div class="col-12 col-md-4 p-5">
+            <h2 class="mb-3"> <?= $article["titre"]?></h2>
+            <h5 class="mb-3"> <?= $article["prix"]?>$</h5>
+            <h6 class="mb-3">Auteur(s) : <?= $article["auteur"]?></h6>
+            <h6 class="mb-3">Isbn : <?= $article["isbn"]?></h6>
+            <h6 class="mb-3">Style : <?= $article["style"]?></h6>
+            <h6 class="mb-3">Nombre de pages : <?= $article["nb_page"]?></h6>
+            <h6 class="mb-3">Date de parution : <?= $article["date_parution"]?></h6>
             </div>
-            <div class="col-4 p-5">
+            <div class="col-12 col-md-4 p-5">
             
             <form action="index.php?page=/storeCart" method="post" class="border border-info me-3 text-center">
             <input type="hidden" name="isbn" value="<?=$isbn?>">
@@ -46,10 +55,11 @@
             </div>
 
         </div>
-        <div class="row m-0 p-0">
+        <div class="row m-0 p-0 ">
             <hr>
-            <h3>Description :</h3>
-             <?= $article["description"]?> 
+            <h3>Description</h3>
+            <p class="ms-3"><?= $article["description"]?> </p>
+             
             <hr>
         </div>
        

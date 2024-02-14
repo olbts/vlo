@@ -2,7 +2,5 @@
 <hr>
 <a href="index.php?page=/achats"><h5>Historique de commandes</h5></a>
 <hr>
-<a href="index.php?page=/retraits"><h5>Retraits</h5></a>
-<hr>
 <a href="index.php?page=/supprimerCompte" class="text-danger"><h5>Supprimer compte</h5></a>
 <hr>

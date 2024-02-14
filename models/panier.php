@@ -19,7 +19,7 @@ function getPanier($isbn,$pdo){
     $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     
     $requetePrepare->execute();
-    return $requetePrepare->fetchAll();
+    return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
 }
 function updateQtePanier($qte,$email,$isbn,$pdo){
     $requetePrepare = $pdo->prepare(
@@ -43,12 +43,15 @@ function taillePanier($email,$pdo){
 }
 function getAllPanier($email,$pdo){
     $requetePrepare = $pdo->prepare(
-        'SELECT * FROM panier JOIN livre on panier.isbn = livre.isbn where email = :email'
-    );
+        "SELECT panier.qte * livre.prix as prixtotal , panier.qte,livre.*,GROUP_CONCAT(auteur.nom,auteur.prenom) as auteur FROM panier 
+        JOIN livre on livre.isbn = panier.isbn join livre_auteur on livre.isbn =livre_auteur.isbn 
+        JOIN auteur on auteur.id_auteur = livre_auteur.id_auteur
+        WHERE panier.email = :email GROUP BY panier.isbn"
+       );
     $requetePrepare->bindParam(':email', $email, PDO::PARAM_STR);
     
     $requetePrepare->execute();
-    return $requetePrepare->fetchAll();
+    return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getPrixPanier($email,$pdo)

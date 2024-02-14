@@ -15,7 +15,10 @@
                 <?php require "views/partials/sideCompte.php"?>
                 </div>
                 <div class="col-9">
-                <table class="table ">
+                    <p>Date commande : <?= $achat["date_commande"] ?></p>
+                    <p>Date maximum retrait : <?= $achat["date_retrait"] ?> </p>
+                    <p>Code à remettre : <?= $achat["code"] ?> </p>
+                <!-- <table class="table ">
                         <thead>
                             <tr>
                             <th scope="col"></th>
@@ -47,7 +50,7 @@
                     <?php endif; ?>
                     
                     </tbody>
-                                        </table>
+                                        </table> -->
                 </div>
             </div>
         </div>

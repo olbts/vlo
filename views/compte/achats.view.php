@@ -17,7 +17,7 @@
                 <div class="col-9">
                 <?php foreach ($commandes->getArticles() as $key => $value) :?>
             <hr>
-        <a href="index.php?page=/achat&id_achat=<?= @$value["id_commande"]?>"><p>commande n°<?= @$value["id_commande"]?></p></a>
+        <a href="index.php?page=/achat&code=<?= @$value["code"]?>"><p>commande n°<?= @$value["code"]?></p></a>
             <hr>
         <?php endforeach ?>
                 </div>
