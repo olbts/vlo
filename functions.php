@@ -39,29 +39,21 @@ function cart(){
 }
 function account(){
     if (isset($_SESSION["email"])) {
-
-        echo '<div  class="dropdown mx-3">
+echo '<div  class="dropdown mx-3">
         <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-        <img src="public/img/profil.png" width="30" height="30" alt="voila" class="rounded-circle">
+            <img src="public/img/profil.png" width="30" height="30" alt="voila" class="rounded-circle">
         </button>
-        
-        
-          
-        
         <form class="dropdown-menu p-4 dropdown-menu-end" action="index.php?page=/logOut" method="post">
-       
           <a class="btn btn-link text-center" href="index.php?page=/compte"> Compte</a>
-          
           <input type="hidden" name="destroy" value="destroy">
           <button type="submit" class="btn btn-link text-center"> Déconnexion</a>
-          
-          </form>
+        </form>
+    
         ';
     }
     else{
         echo "<a class='mx-3 py-2 btn btn-outline-dark'href='index.php?page=/connexion' >
-        
-        Connexion
+            Connexion
         </a>";
     }
 

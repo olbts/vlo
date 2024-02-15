@@ -2,12 +2,10 @@
 require "Database.php";
 require "Verification.php";
 require "Article.php";
-require "Session.php";
 require "functions.php";
 require "routes.php";
-
+session_start();
 $db = Database::getPdoGsb();
-$session = new Session();
 $verif = new Verification();
 if(empty($_SESSION["nb_panier"])){
     $_SESSION["nb_panier"] = 0;

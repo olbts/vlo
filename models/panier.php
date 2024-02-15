@@ -2,22 +2,19 @@
 
 function insertPanier($email,$isbn,$qte,$pdo){
     $requetePrepare = $pdo->prepare(
-        'INSERT INTO `panier`(`email`, `isbn`, `qte`)'
-        .' VALUES (:email,:isbn,:qte) '
-        
-        
+        'INSERT INTO `panier`(`email`, `isbn`, `qte`) VALUES (:email,:isbn,:qte) '
     );
     $requetePrepare->bindParam(':email', $email, PDO::PARAM_STR);
     $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $requetePrepare->bindParam(':qte', $qte, PDO::PARAM_INT);
     $requetePrepare->execute();
 }
-function getPanier($isbn,$pdo){
+function getPanier($email,$isbn,$pdo){
     $requetePrepare = $pdo->prepare(
-        'SELECT *from panier where panier.isbn = :isbn'
+        'SELECT * from panier where panier.isbn = :isbn AND email = :email'
     );
+    $requetePrepare->bindParam(':email', $email, PDO::PARAM_STR);
     $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
-    
     $requetePrepare->execute();
     return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
 }

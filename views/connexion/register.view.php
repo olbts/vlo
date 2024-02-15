@@ -9,10 +9,10 @@
         ?> </h4></div>
 <div class="container">
   <div class="row mt-5">
-    <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-0 col-md-3"></div>
+    <div class="col-12 col-md-6">
       <div class="container">
-      <form class="row g-2" method="post"action="index.php?page=/storeUser">
+      <form class="row g-2" method="post"action="index.php?page=/inscription">
   <div class="col-12">
     <label for="inputEmail4" class="form-label">Adresse Email : </label>
     <input type="email" class="form-control" id="inputEmail4" name="email" value='<?= $currentEmail ??""?>'>
@@ -71,6 +71,6 @@
 </div>
       </div>
     </div>
-    <div class="col-3"></div>
+    <div class="col-0 col-md-3"></div>
   </div>
 </div>

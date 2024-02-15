@@ -27,7 +27,7 @@ if (isset($_POST["email"])&&isset($_POST["password"])&&isset($_POST["password2"]
            
             $errors['email'] = 'Adresse email deja prise';
         }
-        $errors = [];   
+        
         if (empty($errors)) {
             $email = $_POST["email"];
             $crypted = password_hash($_POST["password"],PASSWORD_DEFAULT);
@@ -41,8 +41,10 @@ if (isset($_POST["email"])&&isset($_POST["password"])&&isset($_POST["password2"]
             echo "<script>window.location.replace('index.php?page=/')</script>";
         } else {
             $currentEmail = $_POST["email"];
-            require "controllers/connexion/register.php";
-            
-        }
+            require "views/connexion/register.view.php";
+            }
+    }
+    else{
+        require "views/connexion/register.view.php";
     }
        

@@ -11,9 +11,8 @@ if(!isset($_SESSION["email"])){
         require "controllers/cart/displayCart.php";
         die();
 }
-
 $code = insertRetrait($_SESSION["email"],$db);
 insertRetraitLivre($code,$_SESSION["email"],$db);
 deleteAllPanier($_SESSION["email"],$db);
-
+$_SESSION["nb_panier"];
 require "views/paiement/retirer.view.php";
