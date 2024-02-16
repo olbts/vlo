@@ -37,12 +37,9 @@ function updatePopulaireLivre($qte,$isbn,$pdo){
     
 }
 function insertLivre($isbn,$titre,$date_parution,$nb_page,$prix,$description,$style,$pdo){
-    // $sql =         'INSERT INTO `livre`(`isbn`, `titre`,  `date_parution`, `nb_page`, `prix`, `description`, `style`) VALUES (:isbn,:titre,:date_parution,:nb_page,:prix,:description,:style ';
-
     $requetePrepare = $pdo->prepare(
-        'INSERT INTO `livre`(`isbn`, `titre`,  `date_parution`, `nb_page`, `prix`, `description`, `style`) VALUES (:isbn,:titre,:date_parution,:nb_page,:prix,:description,:style '
+        'INSERT INTO `livre`(`isbn`, `titre`,  `date_parution`, `nb_page`, `prix`, `description`, `style`) VALUES (:isbn,:titre,:date_parution,:nb_page,:prix,:description,:style) '
     );
-    // isbn,$titre,$date_parution,$nb_page,$prix,$description,$style
     $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $requetePrepare->bindParam(':titre', $titre, PDO::PARAM_STR);
     $requetePrepare->bindParam(':date_parution', $date_parution, PDO::PARAM_STR);
@@ -51,8 +48,33 @@ function insertLivre($isbn,$titre,$date_parution,$nb_page,$prix,$description,$st
     $requetePrepare->bindParam(':description', $description, PDO::PARAM_STR);
     $requetePrepare->bindParam(':style', $style, PDO::PARAM_STR);
     $requetePrepare->execute();
-    
+}
+function updateLivre($isbn,$titre,$date_parution,$nb_page,$prix,$description,$style,$pdo){
+    $requetePrepare = $pdo->prepare(
+        "UPDATE `livre` SET `titre`= :titre,`date_parution`=:date_parution,`nb_page`=:nb_page,`prix`=:prix,`description`=:description,`style`=:style WHERE `isbn`= :isbn"
+        // 'INSERT INTO `livre`(`isbn`, `titre`,  `date_parution`, `nb_page`, `prix`, `description`, `style`) VALUES (:isbn,:titre,:date_parution,:nb_page,:prix,:description,:style) '
+    );
+    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+    $requetePrepare->bindParam(':titre', $titre, PDO::PARAM_STR);
+    $requetePrepare->bindParam(':date_parution', $date_parution, PDO::PARAM_STR);
+    $requetePrepare->bindParam(':nb_page', $nb_page, PDO::PARAM_INT);
+    $requetePrepare->bindParam(':prix', $prix, PDO::PARAM_STR);
+    $requetePrepare->bindParam(':description', $description, PDO::PARAM_STR);
+    $requetePrepare->bindParam(':style', $style, PDO::PARAM_STR);
+    $requetePrepare->execute();
+}
+function deleteLivre($isbn,$pdo){
+    $requetePrepare = $pdo->prepare(
+        "DELETE FROM `livre` WHERE isbn = :isbn"
+    );
+    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+    $requetePrepare->execute();
 }
 
-
-
+function getAllLivre($pdo){
+    $requetePrepare = $pdo->prepare(
+        "SELECT * from livre" 
+    );
+    $requetePrepare->execute();
+    return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
+}

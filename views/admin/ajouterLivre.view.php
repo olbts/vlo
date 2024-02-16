@@ -11,6 +11,8 @@
                             <label for="titre">Titre :</label><br><input id="titre" name="titre" type="text"><br><br>
                             <label for="date_parution">Date de parution :</label><br><input id="date_parution" name="date_parution" type="date"><br><br>
                             <label for="nb_page">Nombre de pages:</label><br><input id="nb_page" name="nb_page" type="number">
+                            <label for="nom_auteur">Nom auteur :</label><input type="text" id="nom_auteur" name="nom_auteur">
+                            <label for="prenom_auteur">Prénom auteur :</label><input type="text" id="prenom_auteur" name="prenom_auteur">
                         </div>
                         <div class="col-md-6 col-12">
                             <label for="prix">Prix</label><br><input id="prix" name="prix" type="text"><br><br>

@@ -18,6 +18,10 @@ $routes = [
     "/supprimerCompte" => "controllers/compte/supprimerCompte.php",
     "/retirer" => "controllers/paiement/retirer.php",
     "/ajouterLivre" => "controllers/admin/ajouterLivre.php",
+    "/modifierLivre" => "controllers/admin/modifierLivre.php",
+    "/supprimerLivre" => "controllers/admin/supprimerLivre.php",
+    "/listeLivre" => "controllers/admin/listeLivre.php",
+    "/listeRetrait" => "controllers/admin/listeRetrait.php",
 
 ];
 

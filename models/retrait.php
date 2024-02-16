@@ -33,3 +33,10 @@ function getRetrait($code,$pdo){
     $requetePrepare->execute();
     return $requetePrepare->fetch(PDO::FETCH_ASSOC);
 }
+function getAllRetraitAdmin($pdo){
+    $requetePrepare = $pdo->prepare(
+        "SELECT retrait.code,retrait.date_commande,retrait.date_retrait,retrait.email , SUM(livre.prix*retrait_livre.qte) as prix_total,GROUP_CONCAT(retrait_livre.isbn) AS isbn,GROUP_CONCAT(retrait_livre.qte) AS qte,GROUP_CONCAT(livre.prix * retrait_livre.qte) AS prix FROM `retrait` JOIN retrait_livre ON retrait_livre.code = retrait.code JOIN livre on livre.isbn = retrait_livre.isbn GROUP BY retrait.code;"
+       );
+    $requetePrepare->execute();
+    return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
+}
