@@ -22,6 +22,7 @@ $routes = [
     "/supprimerLivre" => "controllers/admin/supprimerLivre.php",
     "/listeLivre" => "controllers/admin/listeLivre.php",
     "/listeRetrait" => "controllers/admin/listeRetrait.php",
+    "/admin" => "controllers/admin/admin.php",
 
 ];
 

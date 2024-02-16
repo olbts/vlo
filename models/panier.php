@@ -77,3 +77,10 @@ function deleteAllPanier($email,$pdo){
     $requetePrepare->bindParam(':email', $email, PDO::PARAM_STR);
     $requetePrepare->execute();
 }
+function deletePanierIsbn($isbn,$pdo){
+    $requetePrepare = $pdo->prepare(
+        "DELETE FROM `panier` WHERE isbn = :isbn"
+    );
+    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+    $requetePrepare->execute();
+}

@@ -11,10 +11,12 @@ if(empty($_SESSION["nb_panier"])){
     $_SESSION["nb_panier"] = 0;
     $_SESSION["panier"] = [];
     $_SESSION["prix_panier"] = 0;
+    
 }
 $lien = $_GET["page"] ?? "/";
 require "views/partials/header.php";
- require "views/partials/nav.php";
+if(!estAdmin()){
+ require "views/partials/nav.php";}
 if(array_key_exists($lien,$routes,)){
     require($routes[$lien]);
 }

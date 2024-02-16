@@ -11,6 +11,13 @@ function insertRetraitLivre($code,$email,$pdo){
     $requetePrepare->bindParam(':code', $code, PDO::PARAM_INT);
     $requetePrepare->execute();
 }
+function deleteRetraitLivre($isbn,$pdo){
+    $requetePrepare = $pdo->prepare(
+        "DELETE FROM `retrait_livre` WHERE isbn = :isbn"
+    );
+    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+    $requetePrepare->execute();
+}
 
 
 

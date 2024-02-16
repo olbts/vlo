@@ -1,4 +1,12 @@
-<h1>Liste des commandes</h1>
+<div class=" bg bg-info text-center">
+    <h1 class="text-danger">Admin Panel</h1>
+</div>
+<div class="row">
+    <div class="col-12 col-md-3">
+        <?php require "views/partials/sideAdmin.php"?>
+    </div>
+    <div class="col-12 col-md-9">
+    <h1>Liste des commandes</h1>
 <ul>
     <?php foreach ($retraits as $retrait) : ?>
         <li><h5>Code : <?= $retrait["code"]?> Prix : <?= $retrait["prix_total"]?></h5>
@@ -26,3 +34,8 @@
         </li>
     <?php endforeach ?>
 </ul>
+    </div>
+</div>
+
+
+

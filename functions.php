@@ -81,3 +81,14 @@ function estConnecte()
 {
     return isset($_SESSION['email']);
 }
+function estGerant()
+{
+    return isset($_SESSION['admin']) && $_SESSION['admin'] == "gerant";
+}
+function estAdmin(){
+    return isset($_SESSION['admin']);
+}
+
+function ajd(){
+    return gmdate("Y-m-d",time());
+}

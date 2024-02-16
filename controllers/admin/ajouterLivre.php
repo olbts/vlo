@@ -3,6 +3,10 @@ require "models/style.php";
 require "models/livre.php";
 require "models/auteur.php";
 require "models/livre_auteur.php";
+if(!estGerant()){
+    echo "<script>window.location.replace('index.php?page=/')</script>";
+    exit(); 
+}
 $styles = getAllStyle($db);
 if (isset($_POST["isbn"])) {
     $auteur = getAuteur($_POST["nom_auteur"],$_POST["prenom_auteur"],$db);

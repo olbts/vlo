@@ -1,12 +1,16 @@
-<h1>Modifier Livre</h1>
-<form action="index.php?page=/modifierLivre" method="post">
+<div class=" bg bg-info text-center">
+    <h1 class="text-danger">Admin Panel</h1>
+</div>
+
 <div class="row">
         <div class="col-md-3 col-0">
-
+            <?php require "views/partials/sideAdmin.php"?>
         </div>
         <div class="col-md-6 col-12 border border-info p-2">
             <div class="row">
                         <div class="col-md-6 col-12">
+                        <h1>Modifier Livre</h1>
+                        <form action="index.php?page=/modifierLivre" method="post">
                             <label for="isbn">Isbn :</label><br><input  value="<?=$livre["isbn"]?>" id="isbn" name="isbn" type="text"><br><br>
                             <label for="titre">Titre :</label><br><input value="<?=$livre["titre"]?>" id="titre" name="titre" type="text"><br><br>
                             <label for="date_parution">Date de parution :</label><br><input value="<?=$livre["date_parution"]?>" id="date_parution" name="date_parution" type="date"><br><br>

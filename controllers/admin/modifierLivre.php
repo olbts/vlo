@@ -3,6 +3,10 @@ require "models/style.php";
 require "models/livre.php";
 require "models/auteur.php";
 require "models/livre_auteur.php";
+if(!estGerant()){
+    echo "<script>window.location.replace('index.php?page=/')</script>";
+    exit(); 
+}
 $styles = getAllStyle($db);
 if(isset($_GET["isbn"])){
     $livre = getLivre($_GET["isbn"],$db);
