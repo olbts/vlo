@@ -23,8 +23,8 @@ function active($value,$page){
 
     } 
 }
-function img($value){
-    echo "public/img/sample.jpg";
+function img($isbn){
+    echo "public/img/livres/".$isbn.".png";
     // echo "http://books.google.com/books/content?id=".$value."&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api";
 }
 
@@ -39,20 +39,28 @@ function cart(){
 }
 function account(){
     if (isset($_SESSION["email"])) {
-echo '<div  class="dropdown mx-3">
-        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+echo '
+        <button type="button" class="btn_connexion btn btn-outline-dark mx-3 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
             <img src="public/img/profil.png" width="30" height="30" alt="voila" class="rounded-circle">
         </button>
-        <form class="dropdown-menu p-4 dropdown-menu-end" action="index.php?page=/logOut" method="post">
-          <a class="btn btn-link text-center" href="index.php?page=/compte"> Compte</a>
-          <input type="hidden" name="destroy" value="destroy">
-          <button type="submit" class="btn btn-link text-center"> Déconnexion</a>
-        </form>
+        <ul class="dropdown-menu dropdown-menu-start p-2 dropdown-menu-lg-end">
+            <li class="dropdown-item">
+                <a class="btn btn-link text-center" href="index.php?page=/compte"> Compte</a>
+            </li>
+            <li class="dropdown-item">
+                <form class="" action="index.php?page=/logOut" method="post">
+                <input type="hidden" name="destroy" value="destroy">
+                <button type="submit" class="btn btn-link text-center"> Déconnexion</a>
+                </form>
+            </li>
+                
+        </ul>
+        
     
         ';
     }
     else{
-        echo "<a class='mx-3 py-2 btn btn-outline-dark'href='index.php?page=/connexion' >
+        echo "<a class='mx-3 py-2 btn btn-outline-dark btn_connexion' href='index.php?page=/connexion' >
             Connexion
         </a>";
     }

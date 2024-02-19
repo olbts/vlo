@@ -12,6 +12,7 @@ $routes = [
     "/displayCart" => "controllers/cart/displayCart.php",
     "/storeCart" => "controllers/cart/storeCart.php",
     "/destroyCart" => "controllers/cart/destroyCart.php",
+    "/updateCart" => "controllers/cart/updateCart.php",
     "/compte" => "controllers/compte/index.php",
     "/achat" => "controllers/compte/achat.php",
     "/achats" => "controllers/compte/achats.php",

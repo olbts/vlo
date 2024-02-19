@@ -2,7 +2,8 @@
 require "models/livre.php";
 require "models/livre_auteur.php";
 require "models/retrait.php";
-require "models/livre_auteur.php";
+require "models/retrait_livre.php";
+require "models/panier.php";
 if(!estGerant()){
     echo "<script>window.location.replace('index.php?page=/')</script>";
     exit(); 

@@ -6,10 +6,10 @@
         <?php require "views/partials/sideAdmin.php"?>
     </div>
     <div class="col-12 col-md-9">
-    <h1>Liste des commandes</h1>
-<ul>
+    <h1 class="text-center">Liste des commandes</h1>
+<div class="contain">
     <?php foreach ($retraits as $retrait) : ?>
-        <li><h5>Code : <?= $retrait["code"]?> Prix : <?= $retrait["prix_total"]?></h5>
+        <div class="border border-danger commande"><h5> <span class="code">Code : </span> <?= $retrait["code"]?> <span class="prix">Prix : </span>  <?= $retrait["prix_total"]?>$</h5>
             <h6>Adresse Email : <?= $retrait["email"]?></h6>
             <h6>Date commande : <?= $retrait["date_commande"]?></h6>
             <h6>Date maximale retrait : <?= $retrait["date_retrait"]?></h6>
@@ -31,11 +31,27 @@
                 <?php }?>
                     
             </table>
-        </li>
+        </div>
     <?php endforeach ?>
-</ul>
+    </div>
     </div>
 </div>
+<style>
+    .commande{
+        width:fit-content;
+        padding:5px;
+    }
+    .prix{
+        color :blueviolet;
+    }
+    .code{
+        color:blue;
+    }
+    .contain{
+        display: flex; 
+        flex-wrap: wrap;
+    }
+</style>
 
 
 

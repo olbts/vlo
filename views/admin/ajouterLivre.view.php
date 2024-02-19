@@ -7,10 +7,12 @@
         <div class="col-md-3 col-0">
             <?php require "views/partials/sideAdmin.php"?>
         </div>
-        <div class="col-md-6 col-12 border border-info p-2">
+        
+        <div class="col-md-6 col-12">
+        <h1 class="text-center">Ajouter Livre</h1>
             <div class="row">
-            <h1>Ajouter Livre</h1>
-            <form action="index.php?page=/ajouterLivre" method="post">
+            
+            <form action="index.php?page=/ajouterLivre" method="post" enctype="multipart/form-data">
                         <div class="col-md-6 col-12">
                             <label for="isbn">Isbn :</label><br><input id="isbn" name="isbn" type="text"><br><br>
                             <label for="titre">Titre :</label><br><input id="titre" name="titre" type="text"><br><br>
@@ -20,6 +22,8 @@
                             <label for="prenom_auteur">Prénom auteur :</label><input type="text" id="prenom_auteur" name="prenom_auteur">
                         </div>
                         <div class="col-md-6 col-12">
+                        <label for="file">Fichier</label><br>
+        <input type="file" name="file"><br><br>
                             <label for="prix">Prix</label><br><input id="prix" name="prix" type="text"><br><br>
                             <label for="description">Description :</label><br><textarea id="description" name="description"  cols="30" rows="3"></textarea><br><br>
                             <label for="style">Style :</label><br>

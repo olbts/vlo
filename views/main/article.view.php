@@ -13,7 +13,7 @@
         </style>
         <div class="row ">
             <div class="col-12 col-md-4  ">
-                <img src="<?=img("gaga")?>" alt="voila" class="m-5 img_article">
+                <img src="<?=img($article["isbn"])?>" alt="voila" class="m-5 img_article">
             </div>
             <div class="col-12 col-md-4 p-5">
             <h2 class="mb-3"> <?= $article["titre"]?></h2>
@@ -42,15 +42,9 @@
             <br>
     
             
-            <?php 
-        // if (isset($_SESSION["email"])) {
-            echo '<input type="submit" class="btn btn-info btn-sm my-4" value="Ajouter au panier">';
-        // }
-        // else{
-        //     echo '<p class="btn btn-info btn-sm my-4">Vous n etes pas connecté</p>';
-        // }
-        ?>
-               
+            
+      
+            <input type="submit" class="btn btn-info btn-sm my-4" value="Ajouter au panier">
             </form>
             </div>
 

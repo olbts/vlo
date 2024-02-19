@@ -26,9 +26,9 @@ else{
             $_SESSION["panier"][] = [
                 "isbn" => $_POST["isbn"],
                 "qte" => $_POST["qte"],
+                "prix" => $_POST["prix"],
                 ];
             }
-    $_SESSION["prix_panier"] = $_SESSION["prix_panier"] + $prix_total;
     $_SESSION["nb_panier"] = sizeof($_SESSION["panier"]);
 }
 updatePopulaireLivre($_POST["qte"],$_POST["isbn"],$db);

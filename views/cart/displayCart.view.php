@@ -27,17 +27,17 @@
                                         <?php foreach ($panier->getArticles() as $key => $produit) : ?>
                                             <tr >
                        
-                        <th scope="row"><img src="<?= img("gaga")?>" class=" panier_img " alt="..." style="width:60px;"></th>
+                        <th scope="row"><img src="<?= img($produit["isbn"])?>" class=" panier_img " alt="..." style="width:60px;"></th>
                         <td><?= $produit["titre"]?></td>
-                        <td><?php if(isset($produit["auteur"])){
-                            echo $produit["auteur"];} ?></td>
-                        <td><?= $produit["qte"] ?></td>
+                        <td><?= $produit["auteur"] ?></td>
+                        <td><form action="index.php?page=/updateCart" method="post" class="allQteForm" ><input min="1" max="5"   type="number" name="qte" value="<?= $produit["qte"] ?>" class="allQte"><input type="hidden" name="isbn"  value="<?= $produit["isbn"] ?>"></form></td>
                         <td><span><?= $produit["prixtotal"] ?></span>$</td>
                         <td><form action="index.php?page=/destroyCart" method="post">
                           <input type="hidden" name="isbn" value ="<?= $produit["isbn"]?>">
                         <input type="submit" value="X" class="btn btn-outline-danger">
                         </form></td>
                         </tr>
+                        
                                 
                     <?php endforeach; ?>
                     </tbody>
@@ -60,32 +60,41 @@
                 
     <?php 
         if (isset($_SESSION["email"])) : ?>
-           <a  class="btn btn-danger btn-xl mb-3"  href="<?= url("/retirer")?>" data-bs-toggle="modal" data-bs-target="#retirerModal">
-                
-                <b> Retirer en magasin </b>
-    </a>
+        <form action="index.php?page=/retirer" method="post">
+        <select name="boutique" id="">
+          <?php foreach ($boutiques as $boutique) : ?>
+            
+            <option value="<?= $boutique["id_boutique"]?>">
+            <?= $boutique["numero"]?> <?= $boutique["rue"]?> <?= $boutique["ville"]?>
+          </option>
+          <?php endforeach ?>
+        </select><br><br>
+        <button class="btn btn-danger btn-xl mb-3" type="submit" data-bs-toggle="modal" data-bs-target="#retirerModal">
+        <b> Retirer en magasin </b>
+        </button>
+           
     <br>
-           <a  class="btn btn-secondary btn-xl px-3"  href="<?= url("/paiement")?>">
-                
-                <b> Payer maintenant </b>
-    </a>
+           
     <p class="text-danger text-center"><?=$errors["vide"]??""?></p>
     <p class="text-danger text-center"><?=$errors["email"]??""?></p>
+    </form>
        <?php endif; ?>
     <?php
        if (!isset($_SESSION["email"])) : ?>
            
-           <!-- <a  class="btn btn-info btn-xl"  href="<?= url("/paiement")?>">
-                
-                <b> Payer maintenant </b>
-    </a> -->
+           <select name="" id="">
+          <?php foreach ($boutiques as $boutique) : ?>
+            
+            <option value="<?= $boutique["id_boutique"]?>">
+            <?= $boutique["numero"]?> <?= $boutique["rue"]?> <?= $boutique["ville"]?>
+          </option>
+          <?php endforeach ?>
+        </select>
     <button type="button" class="btn btn-danger btn-xl mb-3" data-bs-toggle="modal" data-bs-target="#connexionModal">
   <b> Retirer en magasin </b>
 </button>
     <br>
-    <button type="button" class="btn btn-secondary btn-xl px-3" data-bs-toggle="modal" data-bs-target="#connexionModal">
-  <b> Payer maintenant </b>
-</button>
+    
 <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -123,3 +132,23 @@
     </div>
   </div>
 </div>
+<script defer>
+                          const allQteForm = document.querySelectorAll(".allQteForm");
+                          const allQte = document.querySelectorAll(".allQte");
+                          
+                          allQteForm.forEach(e=>{
+                            e.addEventListener("submit",()=>{
+                              e.preventDefault();
+                            })
+                          })
+                          
+                          allQte.forEach(e => {
+                            e.addEventListener("change",()=>{
+                              
+                              if(e.value < 6 && e.value > 0 )
+                                e.parentElement.submit();
+                              
+                            })
+                          });
+                          
+                        </script>

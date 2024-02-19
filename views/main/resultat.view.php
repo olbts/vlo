@@ -7,20 +7,20 @@
     
     <div class="container-fluid mt-1">
         <div class="row">
-            <div class="col-2 ">
+            <div class="col-md-2 col-12 ">
             <?php require "views/partials/side.php"?>
             </div>
-            <div class="col-10 mt-5">
+            <div class="col-12 col-md-10 mt-5">
             <?php if($resultat->set()): ?>
                 <?php foreach ($resultat->getArticles() as $key => $value) : ?>
                     <a href="<?= url("/article",[
-                        "titre" => $value["titre"],
+                        "isbn" => $value["isbn"],
                     ])?>" >
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
   
     <div class="col-md-4">
-      <img src="<?= img("gaga")?>" class="img-fluid rounded-start" alt="...">
+      <img src="<?= img($value["isbn"])?>" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">

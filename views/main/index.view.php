@@ -8,7 +8,7 @@
     <?php endif ?>
         </div>
         <div class="row">
-        <div class="container-fluid col-0 col-md-2 mx-0 px-0 mt-2 kk ">
+        <div class="container-fluid col-12 col-md-2 mx-0 px-0 mt-2 kk ">
         <?php require "views/partials/side.php"?>
         
         </div>
@@ -24,7 +24,7 @@
                     ])?>" class="bref">
             <div class="card   h-100">
             <div class="non ">
-            <img src="<?= img("gaga")?>" class="card-img-top oki" alt="...">
+            <img src="<?= img($value["isbn"])?>" class="card-img-top oki" alt="...">
             </div>
     
     <div class="card-body ">
@@ -84,7 +84,7 @@
         
     }
 </style>
-    <script src="js/index.js"></script>
+    
    
     
     

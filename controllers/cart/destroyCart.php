@@ -14,7 +14,7 @@ if (estConnecte()) {
 else{
    //on verra après pour supprimer du panier session
    foreach ($_SESSION["panier"] as $key=>$panier) {
-    if ($panier["titre"]===$_POST["titre"]) {
+    if ($panier["isbn"]===$_POST["isbn"]) {
         $_SESSION["prix_panier"] = $_SESSION["prix_panier"] - $_SESSION["panier"][$key]["prix"];
        unset($_SESSION["panier"][$key]);
     }

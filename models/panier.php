@@ -24,7 +24,7 @@ function updateQtePanier($qte,$email,$isbn,$pdo){
     );
     $requetePrepare->bindParam(':qte', $qte, PDO::PARAM_INT);
     $requetePrepare->bindParam(':email', $email, PDO::PARAM_STR);
-    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_INT);
+    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $requetePrepare->execute();
     
 }
@@ -65,7 +65,7 @@ function deletePanier($isbn,$email,$pdo){
     $requetePrepare = $pdo->prepare(
         "DELETE FROM panier WHERE isbn = :isbn AND email = :email"
     );
-    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_INT);
+    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $requetePrepare->bindParam(':email', $email, PDO::PARAM_STR);
     
     $requetePrepare->execute();
@@ -83,4 +83,14 @@ function deletePanierIsbn($isbn,$pdo){
     );
     $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $requetePrepare->execute();
+}
+function updatePanier($qte,$email,$isbn,$pdo){
+    $requetePrepare = $pdo->prepare(
+        "UPDATE panier SET qte =  :qte WHERE isbn = :isbn AND email = :email"
+    );
+    $requetePrepare->bindParam(':qte', $qte, PDO::PARAM_INT);
+    $requetePrepare->bindParam(':email', $email, PDO::PARAM_STR);
+    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+    $requetePrepare->execute();
+    
 }

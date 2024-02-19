@@ -3,16 +3,19 @@
 require "models/retrait.php";
 require "models/retrait_livre.php";
 require "models/panier.php";
-$page = "/retirer";
-$title = "retirer";
+require "models/boutique.php";
+
+
 $errors = [];
-if(!isset($_SESSION["email"])){
+if(!estConnecte()){
     $errors["email"] = "vous devez être connecté";
         require "controllers/cart/displayCart.php";
         die();
 }
-$code = insertRetrait($_SESSION["email"],$db);
+
+$code = insertRetrait($_POST["boutique"],$_SESSION["email"],$db);
 insertRetraitLivre($code,$_SESSION["email"],$db);
 deleteAllPanier($_SESSION["email"],$db);
-$_SESSION["nb_panier"];
+$_SESSION["nb_panier"] = 0;
+$boutique = getBoutique($_POST["boutique"],$db);
 require "views/paiement/retirer.view.php";

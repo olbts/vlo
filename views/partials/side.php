@@ -1,10 +1,4 @@
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#lui" aria-controls="lui" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-</button>
-<nav class="navbar navbar-expand-sm">
-<div class="collapse navbar-collapse" id="lui">
-<ul class="navbar-nav me-auto mb-2 ">
-  <li class="nav-item">
+
 <form method="get" action="index.php" class="tri hmm mb-5 " >
   
   <h5 class="my-3">Ordre</h5>
@@ -40,10 +34,7 @@
   
   
   </form>
-</li>
-</ul>
-</div>
-</nav>
+
 
 <script>
   
