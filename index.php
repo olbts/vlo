@@ -21,6 +21,7 @@ if(array_key_exists($lien,$routes,)){
     require($routes[$lien]);
 }
 else {
-    require "controllers/main/index.php";
+    echo "<script>window.location.replace('index.php?page=/')</script>";
+                exit();
 }
  require "views/partials/footer.php";

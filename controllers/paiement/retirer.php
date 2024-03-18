@@ -9,8 +9,14 @@ require "models/boutique.php";
 $errors = [];
 if(!estConnecte()){
     $errors["email"] = "vous devez être connecté";
-        require "controllers/cart/displayCart.php";
-        die();
+    require "controllers/cart/displayCart.php";
+    die();
+}
+if(taillePanier($_SESSION["email"],$db) == 0){
+    
+    echo "<script>window.location.replace('index.php?page=/displayCart')</script>";
+               exit();
+    
 }
 
 $code = insertRetrait($_POST["boutique"],$_SESSION["email"],$db);

@@ -1,7 +1,10 @@
 <?php 
 
 require "models/panier.php";
-
+if(empty($_POST["isbn"])){
+    echo "<script>window.location.replace('index.php?page=/')</script>";
+            exit();
+}
 if(estConnecte()){
     updatePanier($_POST["qte"],$_SESSION["email"],$_POST["isbn"],$db);
 }

@@ -5,6 +5,10 @@ $title = "panier";
 
 require "models/panier.php";
 require "models/livre.php";
+if(empty($_POST["isbn"])){
+    echo "<script>window.location.replace('index.php?page=/')</script>";
+            exit();
+}
 if (estConnecte()) {
     deletePanier($_POST["isbn"],$_SESSION["email"],$db);
     $_SESSION["nb_panier"] = taillePanier($_SESSION["email"],$db);
