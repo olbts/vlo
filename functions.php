@@ -100,3 +100,10 @@ function estAdmin(){
 function ajd(){
     return gmdate("Y-m-d",time());
 }
+function formatIsbn($isbn){
+    $isbn = substr_replace($isbn, "-", 3, 0);
+    $isbn = substr_replace($isbn, "-", 5, 0);
+    $isbn = substr_replace($isbn, "-", 10, 0); 
+    $isbn = substr_replace($isbn, "-", 15, 0); 
+    return $isbn;
+}

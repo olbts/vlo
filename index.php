@@ -14,10 +14,12 @@ if(empty($_SESSION["nb_panier"])){
     
 }
 $lien = $_GET["page"] ?? "/";
+if(estAdmin()){
+    $routes = $adminRoutes;
+}
 require "views/partials/header.php";
-if(!estAdmin()){
- require "views/partials/nav.php";}
-if(array_key_exists($lien,$routes,)){
+require "views/partials/nav.php";
+if(array_key_exists($lien,$routes)){
     require($routes[$lien]);
 }
 else {

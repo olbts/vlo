@@ -18,15 +18,16 @@ $routes = [
     "/achats" => "controllers/compte/achats.php",
     "/supprimerCompte" => "controllers/compte/supprimerCompte.php",
     "/retirer" => "controllers/paiement/retirer.php",
+    "/admin" => "controllers/admin/admin.php",
+
+];
+
+$adminRoutes = [
+    "/" => "controllers/admin/admin.php",
     "/ajouterLivre" => "controllers/admin/ajouterLivre.php",
     "/modifierLivre" => "controllers/admin/modifierLivre.php",
     "/supprimerLivre" => "controllers/admin/supprimerLivre.php",
     "/listeLivre" => "controllers/admin/listeLivre.php",
     "/listeRetrait" => "controllers/admin/listeRetrait.php",
     "/admin" => "controllers/admin/admin.php",
-
-];
-
-$adminRoutes = [
-
 ];
