@@ -1,18 +1,21 @@
 <?php 
-function getFiltreLivres($ordre,$prixmin,$prixmax,$styles,$pdo){
+function getFiltreLivres($ordre,$prixmin,$prixmax,$styles,$pdo  ){
     $sql = "";
-    $sql = $sql . 'SELECT * FROM `livre`  WHERE prix > '.$prixmin.' AND prix < '.$prixmax.' AND style IN ( "%default%" ';
+    $sql = $sql . 'SELECT * FROM `livre`  WHERE prix >= '.$prixmin.' AND prix <= '.$prixmax.' AND style IN ( "%default%" ';
     foreach ($styles as $key => $value) {
         $sql = $sql . ',"'.$value.'"';
     }
-    $sql = $sql .  ") ORDER BY prix $ordre";
+    $sql = $sql .  ") ORDER BY prix $ordre LIMIT 10 ";
+    // dd($sql);
     $requetePrepare = $pdo->prepare($sql);
+    // $requetePrepare->bindParam(':offset', $offset, PDO::PARAM_STR);
+
     $requetePrepare->execute();
     return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
 }
 function rechercheLivres($recherche,$pdo){
     $requetePrepare = $pdo->prepare(
-        "SELECT * from livre where titre LIKE '%$recherche%' or description LIKE '%$recherche%' or  style LIKE '%$recherche%'  "
+        "SELECT * from livre where titre LIKE '%$recherche%' or description LIKE '%$recherche%' or  style LIKE '%$recherche%' LIMIT 15 "
     );
     $requetePrepare->execute();
     return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
@@ -77,4 +80,18 @@ function getAllLivre($pdo){
     );
     $requetePrepare->execute();
     return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
+}
+function maxPrix($pdo){
+    $requetePrepare = $pdo->prepare(
+        "SELECT MAX(prix) as prix from livre" 
+    );
+    $requetePrepare->execute();
+    return $requetePrepare->fetch(PDO::FETCH_ASSOC)["prix"];
+}
+function minPrix($pdo){
+    $requetePrepare = $pdo->prepare(
+        "SELECT MIN(prix) as prix from livre" 
+    );
+    $requetePrepare->execute();
+    return $requetePrepare->fetch(PDO::FETCH_ASSOC)["prix"];
 }

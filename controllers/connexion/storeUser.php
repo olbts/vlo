@@ -27,7 +27,6 @@ if (isset($_POST["email"])&&isset($_POST["password"])&&isset($_POST["password2"]
            
             $errors['email'] = 'Adresse email deja prise';
         }
-        
         if (empty($errors)) {
             $email = $_POST["email"];
             $crypted = password_hash($_POST["password"],PASSWORD_DEFAULT);

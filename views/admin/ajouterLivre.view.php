@@ -1,5 +1,5 @@
-<div class=" bg bg-info text-center">
-    <h1 class="text-danger">Admin Panel</h1>
+<div class="bg bg-body-tertiary  text-center">
+    <h1 class="text-danger">Ajouter Livre</h1>
 </div>
 
 
@@ -9,7 +9,7 @@
         </div>
         
         <div class="col-md-6 col-12">
-        <h1 class="text-center">Ajouter Livre</h1>
+        
             <div class=" ">
             <?php if(isset($banner)): ?>
                 <h3 class="text-center text-danger"><?= $banner ?></h3>

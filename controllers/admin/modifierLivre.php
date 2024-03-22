@@ -31,7 +31,7 @@ else if (isset($_POST["isbn"])) {
         updateLivre($_POST["isbn"],$_POST["titre"],$_POST["date_parution"],$_POST["nb_page"],$_POST["prix"],$_POST["description"],$_POST["style"],$db);
         updateLivre_auteur($_POST["isbn"],$id_auteur,$db);
     }
-    echo "<script>window.location.replace('index.php?page=/listeLivre&success=meh')</script>";
+    echo "<script>window.location.replace('index.php?page=/listeLivre&success=change')</script>";
 }
 else{
     dd("on a pas réussi à recuperer l'isbn");

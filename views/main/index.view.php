@@ -40,12 +40,12 @@
             <?php endforeach; ?>
             
             </div>
-            
             <?php endif ; ?>
 
             <?php if(!$livres->set()): ?>
-                  <h3 class=" text-danger m-5 p-5">No result found</h3>
+                  <h3 class=" text-danger m-5 p-5">Aucun résultat</h3>
                   <?php endif; ?>
+            
     </div>
     
     </div>

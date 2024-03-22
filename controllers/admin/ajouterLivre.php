@@ -76,7 +76,7 @@ if (empty($banner)) {
         insertLivre($isbn,$_POST["titre"],$_POST["date_parution"],$_POST["nb_page"],$_POST["prix"],$_POST["description"],$_POST["style"],$db);
         insertLivre_auteur($isbn,$id_auteur,$db);
     }
-    echo "<script>window.location.replace('index.php?page=/listeLivre&success=meh')</script>";
+    echo "<script>window.location.replace('index.php?page=/listeLivre&success=add')</script>";
         }
 
     

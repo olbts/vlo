@@ -20,13 +20,13 @@
   <h5 class="my-3">Prix</h5>
   
   <div class="div">
-  <input type="range"  class="form-range inputList" id="min" name="prixmin" <?= "value = ".$prixmin?>>
+  <input type="range" min='<?=$min?>' max='<?=$max?>'  class="form-range inputList" id="min" name="prixmin" <?= "value = ".$prixmin?>>
   
     <span id="displayMin"><?=$prixmin?></span>
   </div>
   
   <div class="div">
-  <input type="range" class="form-range inputList" id="max" name="prixmax" <?="value = ".$prixmax?>>
+  <input type="range" min='<?=$min?>' max='<?=$max?>' class="form-range inputList" id="max" name="prixmax" <?="value = ".$prixmax?>>
   <span id="displayMax"><?=$prixmax?></span>
   
   </div>

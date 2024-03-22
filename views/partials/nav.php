@@ -1,4 +1,4 @@
-<?php if(!estAdmin()): ?>
+<?php if(!estAdmin() && $lien != "/admin"): ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary  ">
   <div class="container-fluid justify-content-between">

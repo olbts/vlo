@@ -14,5 +14,5 @@ if(isset($_POST["isbn"])){
     deleteRetraitLivre($_POST["isbn"],$db);
     deleteLivre_auteur($_POST["isbn"],$db);
     deleteLivre($_POST["isbn"],$db);
-    echo "<script>window.location.replace('index.php?page=/listeLivre&success=meh')</script>"; 
+    echo "<script>window.location.replace('index.php?page=/listeLivre&success=delete')</script>"; 
 }

@@ -1,12 +1,12 @@
-<div class=" bg bg-info text-center">
-    <h1 class="text-danger">Admin Panel</h1>
+<div class=" bg bg-body-tertiary text-center">
+    <h1 class="text-danger">Liste des commandes</h1>
 </div>
 <div class="row">
     <div class="col-12 col-md-3">
         <?php require "views/partials/sideAdmin.php"?>
     </div>
     <div class="col-12 col-md-9">
-    <h1 class="text-center">Liste des commandes</h1>
+    
 <div class="contain">
     <?php foreach ($retraits as $retrait) : ?>
         <div class="border border-danger commande"><h5> <span class="code">Code : </span> <?= $retrait["code"]?> <span class="prix">Prix : </span>  <?= $retrait["prix_total"]?>$</h5>

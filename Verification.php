@@ -42,12 +42,17 @@ class Verification {
     {
         $value = trim($value);
         $value = intval($value);
-        return $value >= 1  && $value <= 999 && is_numeric($value) && is_int($value);
+        return $value >= 1  && $value <= 20000 && is_numeric($value) && is_int($value);
+    }
+    public static function note($value)
+    {
+        $value = trim($value);
+        $value = intval($value);
+        return $value >= 1  && $value <= 5 && is_numeric($value) && is_int($value);
     }
     public static function description($value)
     {
         $value = trim($value);
-        $value = intval($value);
         return strlen($value) >= 1  && strlen($value) <= 1000 ;
     }
 

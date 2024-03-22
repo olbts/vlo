@@ -1,5 +1,5 @@
-<div class=" bg bg-info text-center">
-    <h1 class="text-danger">Admin Panel</h1>
+<div class=" bg bg-body-tertiary text-center">
+    <h1 class="text-danger">Modifier Livre</h1>
 </div>
 
 <div class="row">
@@ -7,7 +7,7 @@
             <?php require "views/partials/sideAdmin.php"?>
         </div>
         <div class="col-md-6 col-12 border border-info p-2">
-        <h1 class="text-center">Modifier Livre</h1>
+        
             <div class="row">
                         <div class="col-md-6 col-12">
                         

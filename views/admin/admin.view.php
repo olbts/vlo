@@ -1,5 +1,5 @@
-<div class=" bg bg-info text-center">
-    <h1 class="text-danger">Admin Panel</h1>
+<div class="bg bg-body-tertiary  text-center">
+    <h1 class="text-danger">Admin</h1>
 </div>
 <div class="adminPanel">
     
