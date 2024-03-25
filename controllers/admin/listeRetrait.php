@@ -5,4 +5,5 @@ if(!estAdmin()){
     exit(); 
 }
 $retraits = getAllRetraitAdmin(ajd(),$db);
+// dd($retraits);
 require "views/admin/listeRetrait.view.php";

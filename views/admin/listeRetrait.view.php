@@ -19,13 +19,13 @@
                     <th class="border">Quantité</th>
                     <th class="border">Prix</th>
                 </tr>
-                <?php $isbn = explode(",", $retrait["qte"]);
+                <?php $isbn = explode(",", $retrait["isbn"]) ;
                 $qte = explode(",", $retrait["qte"]);
                 $prix = explode(",", $retrait["prix"]);
                 for ($i=0; $i < sizeof($isbn); $i++) { ?>
                 <tr>
                     <td class="border"><?=$isbn[$i]?></td>
-                    <td class="border"><?=$qte[$i]?></td>
+                    <td class="border center"><?=$qte[$i]?></td>
                     <td class="border"><?=$prix[$i]?></td>
                 </tr>
                 <?php }?>
