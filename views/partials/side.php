@@ -34,7 +34,7 @@
   
   
   </form>
-
+<!-- 
 
 <script>
   
@@ -62,7 +62,7 @@ inputList.forEach(element => {
   })
 });
 
-</script>
+</script> -->
 
 
   

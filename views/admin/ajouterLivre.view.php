@@ -72,7 +72,7 @@
         
         
 </form>
-<style>
+<!-- <style>
     .buttonDiv{
         display: flex;
         justify-content:right ;
@@ -92,7 +92,7 @@
     input,textarea,select{
         border: 0.1px solid black;
     }
-</style>
+</style> -->
 
 
             

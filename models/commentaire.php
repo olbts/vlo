@@ -47,3 +47,11 @@ function getAvg($isbn,$pdo){
     $requetePrepare->execute();
     return $requetePrepare->fetch(PDO::FETCH_ASSOC)["note"];
 }
+function getCommentairesEmail($email,$pdo){
+    $requetePrepare = $pdo->prepare(
+        "SELECT * from commentaire  WHERE email = :email;"
+    );
+    $requetePrepare->bindParam(':email', $email, PDO::PARAM_STR);
+    $requetePrepare->execute();
+    return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
+}

@@ -23,7 +23,7 @@
               }?>
           </div>
           <div class="mb-3">
-            <a href="<?=url("/resetPassword")?>"> Mot de passe oublié</a>
+            <!-- <a href="<?=url("/resetPassword")?>"> Mot de passe oublié</a> -->
           </div> 
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a class="btn btn-secondary me-md-2" href="<?=url("/inscription")?>" type="button">S'inscrire</a>

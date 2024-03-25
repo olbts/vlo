@@ -7,9 +7,9 @@
     </div>
     <div class="col-12 col-md-9">
     
-<div class="contain">
+<div class="containCommandes">
     <?php foreach ($retraits as $retrait) : ?>
-        <div class="border border-danger commande"><h5> <span class="code">Code : </span> <?= $retrait["code"]?> <span class="prix">Prix : </span>  <?= $retrait["prix_total"]?>$</h5>
+        <div class="border border-danger commande"><h5> <span class="codeCommande">Code : </span> <?= $retrait["code"]?> <span class="prixCommande">Prix : </span>  <?= $retrait["prix_total"]?>$</h5>
             <h6>Adresse Email : <?= $retrait["email"]?></h6>
             <h6>Date commande : <?= $retrait["date_commande"]?></h6>
             <h6>Date maximale retrait : <?= $retrait["date_retrait"]?></h6>
@@ -36,22 +36,23 @@
     </div>
     </div>
 </div>
-<style>
+
+<!-- <style>
     .commande{
         width:fit-content;
         padding:5px;
     }
-    .prix{
+    .prixCommande{
         color :blueviolet;
     }
-    .code{
+    .codeCommande{
         color:blue;
     }
-    .contain{
+    .containCommandes{
         display: flex; 
         flex-wrap: wrap;
     }
-</style>
+</style> -->
 
 
 

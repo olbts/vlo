@@ -29,7 +29,7 @@ function img($isbn){
 }
 
 function cart(){
-     if (isset($_SESSION["tobesure"])) {
+     if (isset($_SESSION["email"])) {
         // <a class="nav-link " href="<?= url("/about")
         echo "<a class='btn btn-outline-success'href='/gah/index.php?page=/cart' >
         <img src='views/img/cart.png' width='30' height='30' alt='voila' class='rounded-circle'>
@@ -39,8 +39,8 @@ function cart(){
 }
 function account(){
     if (isset($_SESSION["email"])) {
-echo '
-        <button type="button" class="btn_connexion btn btn-outline-dark mx-3 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+echo '<div btn_connexion>
+        <button type="button" class=" btn btn-outline-dark mx-3 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
             <img src="public/img/profil.png" width="30" height="30" alt="voila" class="rounded-circle">
         </button>
         <ul class="dropdown-menu dropdown-menu-start p-2 dropdown-menu-lg-end">
@@ -55,6 +55,7 @@ echo '
             </li>
                 
         </ul>
+        </div>
         
     
         ';
@@ -106,4 +107,17 @@ function formatIsbn($isbn){
     $isbn = substr_replace($isbn, "-", 10, 0); 
     $isbn = substr_replace($isbn, "-", 15, 0); 
     return $isbn;
+}
+function jsScript($lien){
+    $lien =  substr($lien,1);;
+    if($lien == ""){
+        $lien = "index";
+    }
+    $path = "public/js/".$lien.".js";
+    if(file_exists($path)){
+        echo '<script src="'.$path.'"></script>';
+    }
+    else{
+        echo '<script src="public/js/generic.js"></script>';
+    }
 }

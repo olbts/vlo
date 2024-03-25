@@ -23,8 +23,8 @@
                         "isbn" => $value["isbn"],
                     ])?>" class="bref">
             <div class="card   h-100">
-            <div class="non ">
-            <img src="<?= img($value["isbn"])?>" class="card-img-top oki" alt="...">
+            <div class="productImg ">
+            <img src="<?= img($value["isbn"])?>" class="card-img-top selfImg" alt="...">
             </div>
     
     <div class="card-body ">
@@ -50,17 +50,8 @@
     
     </div>
     </div>
-    <script>
-//     const titre = document.querySelectorAll(".rawe");
- 
-//  titre.forEach(e=>{
- 
-//   e.innerHTML = e.innerHTML.slice(0,15) 
-  
-//  })
-</script>
-<style>
-    .non{
+<!-- <style>
+    .productImg{
        
         width :100%;
         height : 220px;
@@ -74,7 +65,7 @@
     }
     
     
-    .oki{
+    .selfImg{
         padding:0;
         margin : 0;
        
@@ -83,7 +74,7 @@
         height : fit-content;
         
     }
-</style>
+</style> -->
     
    
     

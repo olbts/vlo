@@ -11,10 +11,10 @@
     <input type="submit" value="Connexion">
 </form>
  
-<style>
+<!-- <style>
     .adminPanel{
         display: flex;
         justify-content: center;
         align-content: center;
     }
-</style>
+</style> -->

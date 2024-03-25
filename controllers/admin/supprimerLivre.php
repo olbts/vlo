@@ -14,5 +14,8 @@ if(isset($_POST["isbn"])){
     deleteRetraitLivre($_POST["isbn"],$db);
     deleteLivre_auteur($_POST["isbn"],$db);
     deleteLivre($_POST["isbn"],$db);
+    $path = "./public/img/livres/".$_POST["isbn"].".png";
+    if( file_exists ( $path))
+     unlink( $path ) ;
     echo "<script>window.location.replace('index.php?page=/listeLivre&success=delete')</script>"; 
 }

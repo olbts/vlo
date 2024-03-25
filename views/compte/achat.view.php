@@ -1,20 +1,13 @@
 
-    <h5> <?php 
-        if (isset($_SESSION["email"])) {
-            echo "Bienvenue ".$_SESSION["email"]."!";
-        }
-        else{
-            echo "Vous n'etes pas connecté";
-        }
-        ?> </h5>
-        <hr>
+    
         
         <div class="container-fluid">
             <div class="row">
                 <div class="col-3">
                 <?php require "views/partials/sideCompte.php"?>
                 </div>
-                <div class="col-9">
+                <div class="col-9 ">
+                    <h3 class="text-info center mb-3">Détails Commande</h3>
                     <p>Date commande : <?= $achat["date_commande"] ?></p>
                     <p>Date maximum retrait : <?= $achat["date_retrait"] ?> </p>
                     <p>Code à remettre : <?= $achat["code"] ?> </p>

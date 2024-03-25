@@ -95,3 +95,14 @@ function minPrix($pdo){
     $requetePrepare->execute();
     return $requetePrepare->fetch(PDO::FETCH_ASSOC)["prix"];
 }
+function getLivreStyle($style,$isbn,$pdo){
+    $requetePrepare = $pdo->prepare(
+        "SELECT *  FROM `livre` WHERE style = :style AND isbn NOT LIKE :isbn LIMIT 4"
+    );
+    $requetePrepare->bindParam(':style', $style, PDO::PARAM_STR);
+    $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+
+    $requetePrepare->execute();
+    return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
+
+}

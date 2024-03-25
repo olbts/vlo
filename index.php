@@ -5,7 +5,13 @@ require "Article.php";
 require "functions.php";
 require "routes.php";
 session_start();
-$db = Database::getPdoGsb();
+try {
+    $db = Database::getPdoGsb();
+} catch (\Throwable $th) {
+    echo "<h1 style='color:red;text-align:center;'>Site indisponible veuillez réessayer plus tard</h1>";
+    die();
+}
+
 $verif = new Verification();
 if(empty($_SESSION["nb_panier"])){
     $_SESSION["nb_panier"] = 0;

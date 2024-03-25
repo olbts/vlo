@@ -53,6 +53,40 @@
             <h3>Description</h3>
             <p class="ms-3"><?= $article["description"]?> </p>
         </div>
+        <div class="row">
+            <hr>
+            <h5>Dans la même catégorie :</h5>
+            <div class="flexOther">
+            <?php if ($others->set()) : ?>
+                
+                <div class="row row-cols-1 row-cols-md-4 card-group mt-4 gy-3">
+            
+            <?php foreach ($others->getArticles() as $key => $value) :    ?>
+        <div class="col "> 
+        <a href="<?= url("/article",[
+                        "isbn" => $value["isbn"],
+                    ])?>" class="bref">
+            <div class="card   h-100">
+            <div class="productImg ">
+            <img src="<?= img($value["isbn"])?>" class="card-img-top selfImg" alt="...">
+            </div>
+    
+    <div class="card-body ">
+      <h5 class="card-title rawe"><?= $value["titre"]?></h5>
+      
+      
+    </div>
+    <p class="card-text text-end px-3"><small class="text-body-secondary"><?= $value["prix"]?>$</small></p>
+    
+  </div>
+        </a>
+            </div>
+            <?php endforeach; ?>
+            
+            </div>
+            <?php endif ; ?>
+            </div>
+        </div>
         <div class="row  ">
             <hr>
             <div class="center">
@@ -89,7 +123,9 @@
              </form>
             <hr>
             </div>
-            <?php endif; ?>
+            <?php  endif ; if(!estConnecte()):?>
+                <h6 class="center text-info">Vous devez être connecté pour poster un commentaire</h6>
+            <?php endif;?>
         </div>
         <?php if(!empty($commentaires)) : ?>
         <div class="row">
@@ -111,7 +147,7 @@
         <?php endif; ?>
        
     </div>
-    <script> 
+    <!-- <script> 
         const prix = document.querySelector(".prix");
    const actuel = parseFloat(prix.innerHTML);
       const qte = document.querySelector("#qte");
@@ -122,9 +158,9 @@
         })
   
 
-    </script>
+    </script> -->
 
-<style>
+<!-- <style>
     .commentaires{
         display: flex;
         flex-direction: column;
@@ -135,6 +171,9 @@
     }
     .center{
         text-align: center;
+    }
+    .left{
+        text-align:left;
     }
     .note{
         border: 1px solid orangered;
@@ -160,4 +199,4 @@
     input,textarea,select{
         border: 1px solid black;
     }
-</style>
+</style> -->

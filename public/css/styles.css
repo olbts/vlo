@@ -13,8 +13,6 @@
      width: fit-content;
      height : fit-content;
 }
-
-  
 .btn_panier,.btn_connexion{
     height: 44px;
   }
@@ -38,3 +36,95 @@
     
     
   }
+  .productImg{
+       
+    width :100%;
+    height : 220px;
+    display : flex; 
+    align-items: center;
+  
+    justify-content : center;
+    overflow: hidden;
+    padding : 0;
+    
+}
+.selfImg{
+  padding:0;
+  margin : 0;
+ 
+  width: fit-content;
+  height : 100%;
+  height : fit-content;
+  
+}
+.commentaires{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.right{
+  text-align: right;
+}
+.center{
+  text-align: center;
+}
+.left{
+  text-align:left;
+}
+.note{
+  border: 1px solid orangered;
+  background-color: yellow;
+  color: purple;
+  border-radius: 50%;
+  padding: 5px;
+}
+.sumNote{
+  height: 50px;
+  width: 50px;
+  padding: 15px;
+  font-size: 15vh;
+  background-color: orangered;
+}
+.flexCommentaire{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.commande{
+  width:fit-content;
+  padding:5px;
+}
+.prixCommande{
+  color :blueviolet;
+}
+.codeCommande{
+  color:blue;
+}
+.containCommandes{
+  display: flex; 
+  flex-wrap: wrap;
+}
+.adminPanel{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.buttonDiv{
+  display: flex;
+  justify-content:right ;
+}
+.displayLivre{
+  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding : 10px;
+}
+.couple{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+input,textarea,select{
+  border: 1px solid black;
+}

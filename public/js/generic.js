@@ -1,0 +1,1 @@
+console.log("coucou c'est generic :D")

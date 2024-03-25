@@ -103,7 +103,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-end">
-        
+      <a href="<?= url("/inscription")?>" class="btn btn-secondary ">Inscription</a>
         <a href="<?= url("/connexion")?>" class="btn btn-danger ">Connexion</a>
       </div>
       
@@ -132,7 +132,7 @@
     </div>
   </div>
 </div>
-<script defer>
+<!-- <script defer>
                           const allQteForm = document.querySelectorAll(".allQteForm");
                           const allQte = document.querySelectorAll(".allQte");
                           
@@ -151,4 +151,4 @@
                             })
                           });
                           
-                        </script>
+                        </script> -->
