@@ -23,3 +23,10 @@ function deleteLivre_auteur($isbn,$pdo){
     $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $requetePrepare->execute();
 }
+function deleteLivre_auteurId($id_auteur,$pdo){
+    $requetePrepare = $pdo->prepare(
+        "DELETE FROM `livre_auteur` WHERE id_auteur = :id_auteur"
+    );
+    $requetePrepare->bindParam(':id_auteur', $id_auteur, PDO::PARAM_INT);
+    $requetePrepare->execute();
+}

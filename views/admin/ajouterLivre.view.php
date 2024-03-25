@@ -29,10 +29,25 @@
                                 <label for="nb_page">Nombre de pages :</label><input id="nb_page" name="nb_page" type="number" value='<?= $currentPage ??""?>'>
                             </div>
                             <div class="couple">
-                                <label for="nom_auteur">Nom auteur :</label><input type="text" id="nom_auteur" name="nom_auteur" value='<?= $currentNom ??""?>'>
+                                <label for="auteur">Nombre d'auteurs :</label>
+                                
+                            <select name="" id="nbAuteur"><option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <div id="inputAuteur">
+                            <select name="auteur[]" id="auteur">
+                                <?php foreach ($auteurs as  $auteur) : ?>
+                                    <option value="<?=$auteur["id_auteur"]?>"><?=$auteur["nom"]?> <?=$auteur["prenom"]?></option>
+                                <?php endforeach ?>
+                            </select>
                             </div>
-                            <div class="couple">
-                                <label for="prenom_auteur">Prénom auteur :</label><input type="text" id="prenom_auteur" name="prenom_auteur" value='<?= $currentPrenom ??""?>'>
+                            
+                            <!-- <select name="auteur[]" id="auteur">
+                                <?php foreach ($auteurs as  $auteur) : ?>
+                                    <option value="<?=$auteur["id_auteur"]?>"><?=$auteur["nom"]?> <?=$auteur["prenom"]?></option>
+                                <?php endforeach ?>
+                            </select> -->
                             </div>
                             <div class="couple">
                             <label for="file">Fichier :</label>
@@ -72,35 +87,22 @@
         
         
 </form>
-<!-- <style>
-    .buttonDiv{
-        display: flex;
-        justify-content:right ;
-    }
-    .displayLivre{
-        
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        padding : 10px;
-    }
-    .couple{
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-    }
-    input,textarea,select{
-        border: 0.1px solid black;
-    }
-</style> -->
-
-
-            
-        <!-- isbn 	
-		titre		
-		populaire		
-		date_parution	
-		nb_page	
-		prix		
-		description		
-		style  -->
+<script>
+    const nbAuteur = document.querySelector("#nbAuteur");
+    nbAuteur.value = 1
+    const inputAuteur = document.querySelector("#inputAuteur");
+    const originalText = inputAuteur.innerHTML;
+    inputAuteur.innerHTML = "Auteur : " + originalText
+    nbAuteur.addEventListener("change",()=>{
+        const nb = nbAuteur.value;
+        inputAuteur.innerHTML =""
+        if (nb > 1) {
+            for (let i = 0; i < nb; i++) {
+            inputAuteur.innerHTML = inputAuteur.innerHTML + "Auteur "+(i +1)+":"+ originalText +"<br>"
+            }
+        }else {
+            inputAuteur.innerHTML = "Auteur : " + originalText
+        }
+    })
+    
+</script>

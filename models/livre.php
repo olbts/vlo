@@ -23,7 +23,7 @@ function rechercheLivres($recherche,$pdo){
 }
 function getLivre($isbn,$pdo){
     $requetePrepare = $pdo->prepare(
-        "SELECT livre.*,GROUP_CONCAT(auteur.`nom`,auteur.prenom) as auteur FROM `livre` join livre_auteur on livre_auteur.isbn = livre.isbn JOIN auteur on livre_auteur.id_auteur = auteur.id_auteur WHERE livre.isbn = :isbn;"
+        'SELECT livre.*,GROUP_CONCAT(auteur.`nom`," ",auteur.prenom) as auteur FROM `livre` join livre_auteur on livre_auteur.isbn = livre.isbn JOIN auteur on livre_auteur.id_auteur = auteur.id_auteur WHERE livre.isbn = :isbn;'
     );
     $requetePrepare->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $requetePrepare->execute();

@@ -1,5 +1,5 @@
 <div class="bg bg-body-tertiary  text-center">
-    <h1 class="text-danger">Liste Livres</h1>
+    <h1 class="text-danger">Liste des Livres</h1>
 </div>
 <div class="row">
     <div class="col-12 col-md-3">

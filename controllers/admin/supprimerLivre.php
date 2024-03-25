@@ -19,3 +19,7 @@ if(isset($_POST["isbn"])){
      unlink( $path ) ;
     echo "<script>window.location.replace('index.php?page=/listeLivre&success=delete')</script>"; 
 }
+else{
+    echo "<script>window.location.replace('index.php?page=/admin')</script>";
+    die();
+}
