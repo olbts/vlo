@@ -1,8 +1,7 @@
 <?php
 
 if(empty($_GET["isbn"])){
-    echo "<script>window.location.replace('index.php?page=/')</script>";
-            exit();
+    replace("/");
 }
 require "models/commentaire.php";
 require "models/livre.php";
@@ -15,9 +14,6 @@ if(isset($_POST["isbn"])){
     if (!$verif::note($_POST["note"])) {
         $banner = "Note invalide ! ";
     }
-    // if (!$verif::isbn($_POST["isbn"])) {
-    //     $banner = "Isbn invalide ! ";
-    // }
     if (!estConnecte()) {
         $banner = "Vous devez être connecté pour poster un commentaire ! ";
     }
@@ -36,12 +32,10 @@ if(isset($_POST["isbn"])){
 $isbn = $_GET["isbn"] ;
 $article = getLivre($_GET["isbn"],$db);
 if(empty($article["isbn"])){
-    echo "<script>window.location.replace('index.php?page=/')</script>";
-            exit();
+    replace("/");
 }
 $others = new Article();
 $others->setArticles(getLivreStyle($article["style"],$_GET["isbn"],$db));
 $commentaires = getCommentaires($_GET["isbn"],$db);
 @$avgNote = round(getAvg($_GET["isbn"],$db),1) ?? 0;
-
 require "views/main/article.view.php";

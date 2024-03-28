@@ -3,8 +3,7 @@
 require "models/client.php";
 require "models/commentaire.php";
 if(!estConnecte()){
-    echo "<script>window.location.replace('index.php?page=/')</script>";
-            exit();
+    replace("/");
 }
 $info = ["text-secondary" , "8 caracteres minimum, dont une majuscule,une minuscule,un chiffre et un caractere special"];
 if (isset($_POST["updatePassword"])) {
@@ -27,5 +26,4 @@ if (isset($_POST["updatePassword"])) {
 }
 $commentaires = new Article();
 $commentaires->setArticles(getCommentairesEmail($_SESSION["email"],$db));
-
 require "views/compte/compte.view.php";

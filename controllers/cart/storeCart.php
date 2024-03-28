@@ -3,8 +3,7 @@
 require "models/panier.php";
 require "models/livre.php";
 if(empty($_POST["isbn"])){
-    echo "<script>window.location.replace('index.php?page=/')</script>";
-    exit();
+    replace("/");
 }
 if (estConnecte()) {
     $panier = getPanier($_SESSION["email"],$_POST["isbn"],$db);
@@ -35,4 +34,4 @@ else{
     $_SESSION["nb_panier"] = sizeof($_SESSION["panier"]);
 }
 updatePopulaireLivre($_POST["qte"],$_POST["isbn"],$db);
-echo "<script defer>window.location.replace('index.php?page=/&ajouter=true')</script>";
+replace("/&ajouter=true");

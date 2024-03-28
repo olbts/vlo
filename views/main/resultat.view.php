@@ -25,7 +25,6 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><?= $value["titre"]?></h5>
-        <!-- <p class="card-text"><?= $value["description"]?></p> -->
         <p class="card-text"><small class="text-body-secondary"><?= $value["prix"]?>$</small></p>
       </div>
     </div>

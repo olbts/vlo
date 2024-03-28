@@ -4,10 +4,10 @@ $success = [
     
     "delete" => "L'auteur a bien été supprimé",
     "add"    => "L'auteur a bien été ajouté"  ,
+    "prob"       => "Des livres utilisent cet auteur"
 ];
 if(!estGerant()){
-    echo "<script>window.location.replace('index.php?page=/')</script>";
-    exit(); 
+    replace("/");
 }
 $auteurs = getAllAuteur($db);
 

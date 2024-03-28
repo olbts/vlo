@@ -7,8 +7,7 @@ $success = [
     "add"    => "Le livre a bien été ajouté"  ,
 ];
 if(!estGerant()){
-    echo "<script>window.location.replace('index.php?page=/')</script>";
-    exit(); 
+    replace("/");
 }
 $livres = getAllLivre($db);
 require "views/admin/listeLivre.view.php";

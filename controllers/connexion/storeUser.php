@@ -3,28 +3,18 @@ require "models/client.php";
 require "models/panier.php";
 
 if (isset($_POST["email"])&&isset($_POST["password"])&&isset($_POST["password2"])) {
-   
-    
-    $errors = [];
-    
-        if (! $verif::email($_POST['email'])) {
+   $errors = [];
+    if (! $verif::email($_POST['email'])) {
             $errors['email'] = 'Adresse email invalide.';
-            
-            
         }
         if (! $verif::password($_POST['password'])) {
             $errors['password'] = '8 caracteres minimum, dont une majuscule,une minuscule,un chiffre et un caractere special';
-            
-           
         }
         if (! $verif::equalPassword($_POST['password'],$_POST['password'])) {
             $errors['equalPassword'] = 'Les mots de passe ne correspondent pas ';
-            
-            
         }
         $client = getClient($_POST["email"],$db);
         if ( !empty($client)) {
-           
             $errors['email'] = 'Adresse email deja prise';
         }
         if (empty($errors)) {
@@ -37,7 +27,7 @@ if (isset($_POST["email"])&&isset($_POST["password"])&&isset($_POST["password2"]
                 }
             }
            $_SESSION["email"] = $_POST["email"];
-            echo "<script>window.location.replace('index.php?page=/')</script>";
+           replace("/");
         } else {
             $currentEmail = $_POST["email"];
             require "views/connexion/register.view.php";

@@ -30,3 +30,11 @@ function deleteLivre_auteurId($id_auteur,$pdo){
     $requetePrepare->bindParam(':id_auteur', $id_auteur, PDO::PARAM_INT);
     $requetePrepare->execute();
 }
+function getLivre_Auteur($id_auteur,$pdo){
+    $requetePrepare = $pdo->prepare(
+        "SELECT *  FROM `livre_auteur` WHERE  id_auteur = :id_auteur "
+    );
+    $requetePrepare->bindParam(':id_auteur', $id_auteur, PDO::PARAM_INT);
+    $requetePrepare->execute();
+    return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
+}

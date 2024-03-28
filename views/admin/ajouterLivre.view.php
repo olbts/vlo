@@ -1,16 +1,12 @@
 <div class="bg bg-body-tertiary  text-center">
     <h1 class="text-danger">Ajouter Livre</h1>
 </div>
-
-
 <div class="row">
         <div class="col-md-3 col-0">
             <?php require "views/partials/sideAdmin.php"?>
         </div>
-        
         <div class="col-md-6 col-12">
-        
-            <div class=" ">
+        <div class="">
             <?php if(isset($banner)): ?>
                 <h3 class="text-center text-danger"><?= $banner ?></h3>
             <?php endif; ?>
@@ -41,14 +37,6 @@
                                     <option value="<?=$auteur["id_auteur"]?>"><?=$auteur["nom"]?> <?=$auteur["prenom"]?></option>
                                 <?php endforeach ?>
                             </select>
-                            </div>
-                            
-                            <!-- <select name="auteur[]" id="auteur">
-                                <?php foreach ($auteurs as  $auteur) : ?>
-                                    <option value="<?=$auteur["id_auteur"]?>"><?=$auteur["nom"]?> <?=$auteur["prenom"]?></option>
-                                <?php endforeach ?>
-                            </select> -->
-                            </div>
                             <div class="couple">
                             <label for="file">Fichier :</label>
         <input type="file" name="file" value='<?= $currentFichier ??""?>'>
@@ -70,39 +58,14 @@
                             </select>
                             </div>
                         </div>
-                        
-                        
                         <div class="buttonDiv">
                         <button class="btn btn-success justify-self-center" type="submit ">Ajouter</button>
-
                         </div>
-                        
-            </div>
+                </div>
         </div>
         <div class="col-md-3 col-0">
 
         </div>
-    
-</div>
-        
-        
+    </div>
 </form>
-<script>
-    const nbAuteur = document.querySelector("#nbAuteur");
-    nbAuteur.value = 1
-    const inputAuteur = document.querySelector("#inputAuteur");
-    const originalText = inputAuteur.innerHTML;
-    inputAuteur.innerHTML = "Auteur : " + originalText
-    nbAuteur.addEventListener("change",()=>{
-        const nb = nbAuteur.value;
-        inputAuteur.innerHTML =""
-        if (nb > 1) {
-            for (let i = 0; i < nb; i++) {
-            inputAuteur.innerHTML = inputAuteur.innerHTML + "Auteur "+(i +1)+":"+ originalText +"<br>"
-            }
-        }else {
-            inputAuteur.innerHTML = "Auteur : " + originalText
-        }
-    })
-    
-</script>
+

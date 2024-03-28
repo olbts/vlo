@@ -40,11 +40,7 @@
                 <option value="5">5</option>
             </select>
             <br>
-    
-            
-            
-      
-            <input type="submit" class="btn btn-info btn-sm my-4" value="Ajouter au panier">
+    <input type="submit" class="btn btn-info btn-sm my-4" value="Ajouter au panier">
             </form>
             </div>
             <hr>
@@ -129,12 +125,12 @@
         </div>
         <?php if(!empty($commentaires)) : ?>
         <div class="row">
-            <col-12 class="col-md-3 center mb-3">
+            <div class="col-md-3 center mb-3">
             <span class="sumNote">
             <?= $avgNote?>/5
         </span>
             
-        </col-12>
+        </div>
             <div class="col-12 col-md-9 commentaires">
             <?php foreach ($commentaires as $commentaire) :?>
                <h6><span class="note"><?= $commentaire["note"]?>/5</span>  <?= $commentaire["titre"]?></h6>
@@ -142,61 +138,7 @@
                
             <?php endforeach; ?>
             </div>
-            
         </div>
         <?php endif; ?>
-       
     </div>
-    <!-- <script> 
-        const prix = document.querySelector(".prix");
-   const actuel = parseFloat(prix.innerHTML);
-      const qte = document.querySelector("#qte");
-      const joy = document.querySelector("#joy");
-        qte.addEventListener("change",()=>{
-          prix.innerHTML =  actuel * parseFloat(qte.value)
-          joy.value = actuel * parseFloat(qte.value);
-        })
-  
-
-    </script> -->
-
-<!-- <style>
-    .commentaires{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-    .right{
-        text-align: right;
-    }
-    .center{
-        text-align: center;
-    }
-    .left{
-        text-align:left;
-    }
-    .note{
-        border: 1px solid orangered;
-        background-color: yellow;
-        color: purple;
-        border-radius: 50%;
-        padding: 5px;
-    }
-    .sumNote{
-        /* border: 1px solid black;
-        border-radius: 90%; */
-        height: 50px;
-        width: 50px;
-        padding: 15px;
-        font-size: 15vh;
-        background-color: orangered;
-    }
-   .flexCommentaire{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    input,textarea,select{
-        border: 1px solid black;
-    }
-</style> -->
+   

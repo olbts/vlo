@@ -1,10 +1,3 @@
-
-    
-        
-        <!-- <h1 class="mx-3 text-secondary">
-        <?php require "views/partials/navPaiement.php"?>
-        </h1> -->
-        
 <div class="container-fluid">
     <div class="row">
 
@@ -94,8 +87,7 @@
   <b> Retirer en magasin </b>
 </button>
     <br>
-    
-<div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
     <div class="modal-header">
@@ -106,8 +98,7 @@
       <a href="<?= url("/inscription")?>" class="btn btn-secondary ">Inscription</a>
         <a href="<?= url("/connexion")?>" class="btn btn-danger ">Connexion</a>
       </div>
-      
-    </div>
+      </div>
   </div>
 </div>
        <?php endif; ?>
@@ -132,23 +123,3 @@
     </div>
   </div>
 </div>
-<!-- <script defer>
-                          const allQteForm = document.querySelectorAll(".allQteForm");
-                          const allQte = document.querySelectorAll(".allQte");
-                          
-                          allQteForm.forEach(e=>{
-                            e.addEventListener("submit",()=>{
-                              e.preventDefault();
-                            })
-                          })
-                          
-                          allQte.forEach(e => {
-                            e.addEventListener("change",()=>{
-                              
-                              if(e.value < 6 && e.value > 0 )
-                                e.parentElement.submit();
-                              
-                            })
-                          });
-                          
-                        </script> -->

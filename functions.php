@@ -121,3 +121,24 @@ function jsScript($lien){
         echo '<script src="public/js/generic.js"></script>';
     }
 }
+function replace($lien = "/"){
+    echo "<script>window.location.replace('index.php?page=".$lien."')</script>";
+                exit();
+}
+function sessionIni(){
+    if(empty($_SESSION["nb_panier"])){
+        $_SESSION["nb_panier"] = 0;
+        $_SESSION["panier"] = [];
+        $_SESSION["prix_panier"] = 0;
+        
+    }
+}
+function databaseIni(){
+    try {
+        $db = Database::getPdoGsb();
+        return $db;
+    } catch (\Throwable $th) {
+        require "views/main/error.view.php";
+        die();
+    }
+}

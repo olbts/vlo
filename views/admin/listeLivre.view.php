@@ -6,7 +6,6 @@
         <?php require "views/partials/sideAdmin.php"?>
     </div>
     <div class="col-12 col-md-9">
-        
         <?php  if(isset($_GET["success"])) : ?>
         <h4 class="text-center bg bg-success text-white"><?= $success[$_GET["success"]] ?></h4>
         <?php endif ?>

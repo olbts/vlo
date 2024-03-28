@@ -1,18 +1,15 @@
 <?php
 
 if(!estConnecte()){
-    echo "<script>window.location.replace('index.php?page=/')</script>";
-            exit();
+    replace("/");
 }
 if(empty($_GET["code"])){
-    echo "<script>window.location.replace('index.php?page=/achats')</script>";
-            exit();
+    replace("/achats");
 }
 require "models/retrait.php"; 
 $page = "/achat";
 $achat = getRetrait($_GET["code"],$db);
 if(empty($achat["code"])){
-    echo "<script>window.location.replace('index.php?page=/achats')</script>";
-            exit();
+    replace("/achats");
 }
 require "views/compte/achat.view.php";

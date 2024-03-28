@@ -7,17 +7,14 @@ if (isset($_POST["login"])) {
         if(!empty($admin)){
             $_SESSION["admin"] = $admin["login"];
             unset($_SESSION["email"]);
-            echo "<script>window.location.replace('index.php?page=/listeRetrait')</script>";
-            exit();
+            replace("/listeRetrait");
+            }
         }
-        
-    }
 else if (estAdmin()) {
     if(isset($_POST["logout"])){
         unset($_SESSION["admin"]);
     }
-    echo "<script>window.location.replace('index.php?page=/listeRetrait')</script>";
-    exit();
+    replace("/listeRetrait");
 }
 
 require "views/admin/admin.view.php";

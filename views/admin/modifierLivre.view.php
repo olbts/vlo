@@ -1,7 +1,6 @@
 <div class=" bg bg-body-tertiary text-center">
     <h1 class="text-danger">Modifier Livre</h1>
 </div>
-
 <div class="row">
         <div class="col-md-3 col-0">
             <?php require "views/partials/sideAdmin.php"?>
@@ -42,10 +41,7 @@
         <div class="col-md-3 col-0">
 
         </div>
-    
-</div>
-        
-        
+    </div>
 </form>
 
 

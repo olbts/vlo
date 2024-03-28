@@ -1,8 +1,7 @@
 <?php 
 
 if(!estGerant()){
-    echo "<script>window.location.replace('index.php?page=/')</script>";
-    exit(); 
+    replace("/");
 }
 require "models/style.php";
 require "models/livre.php";
@@ -14,7 +13,6 @@ if(!isset($_POST["isbn"])){
     require "views/admin/ajouterLivre.view.php" ; 
     exit();
 }
-// dd(sizeof($_POST["auteur"]));
 $currentIsbn = $_POST["isbn"];
 $currentTitre = $_POST["titre"];
 $currentDate = $_POST["date_parution"];
@@ -74,12 +72,8 @@ if (empty($banner)) {
         insertLivre_auteur($isbn,$_POST["auteur"][$i],$db);
     }
     
-    
-    echo "<script>window.location.replace('index.php?page=/listeLivre&success=add')</script>";
+    replace("/listeLivre&success=add");
         }
-
-    
-
 else{
 require "views/admin/ajouterLivre.view.php" ; 
 }

@@ -6,8 +6,7 @@
         <?php require "views/partials/sideAdmin.php"?>
     </div>
     <div class="col-12 col-md-9">
-    
-<div class="containCommandes">
+    <div class="containCommandes">
     <?php foreach ($retraits as $retrait) : ?>
         <div class="border border-danger commande"><h5> <span class="codeCommande">Code : </span> <?= $retrait["code"]?> <span class="prixCommande">Prix : </span>  <?= $retrait["prix_total"]?>$</h5>
             <h6>Adresse Email : <?= $retrait["email"]?></h6>
@@ -37,22 +36,6 @@
     </div>
 </div>
 
-<!-- <style>
-    .commande{
-        width:fit-content;
-        padding:5px;
-    }
-    .prixCommande{
-        color :blueviolet;
-    }
-    .codeCommande{
-        color:blue;
-    }
-    .containCommandes{
-        display: flex; 
-        flex-wrap: wrap;
-    }
-</style> -->
 
 
 

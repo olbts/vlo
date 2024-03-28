@@ -22,14 +22,14 @@ $routes = [
 ];
 
 $adminRoutes = [
-    "/"               =>    "controllers/admin/admin.php",
-    "/admin"          =>    "controllers/admin/admin.php",
-    "/ajouterLivre"   =>    "controllers/admin/ajouterLivre.php",
-    "/modifierLivre"  =>    "controllers/admin/modifierLivre.php",
-    "/supprimerLivre" =>    "controllers/admin/supprimerLivre.php",
+    "/"                =>    "controllers/admin/admin.php",
+    "/admin"           =>    "controllers/admin/admin.php",
+    "/ajouterLivre"    =>    "controllers/admin/ajouterLivre.php",
+    "/modifierLivre"   =>    "controllers/admin/modifierLivre.php",
+    "/supprimerLivre"  =>    "controllers/admin/supprimerLivre.php",
     "/ajouterAuteur"   =>    "controllers/admin/ajouterAuteur.php",
     "/supprimerAuteur" =>    "controllers/admin/supprimerAuteur.php",
-    "/listeLivre"     =>    "controllers/admin/listeLivre.php",
-    "/listeRetrait"   =>    "controllers/admin/listeRetrait.php",
-    "/listeAuteur"    =>    "controllers/admin/listeAuteur.php",
+    "/listeLivre"      =>    "controllers/admin/listeLivre.php",
+    "/listeRetrait"    =>    "controllers/admin/listeRetrait.php",
+    "/listeAuteur"     =>    "controllers/admin/listeAuteur.php",
 ];

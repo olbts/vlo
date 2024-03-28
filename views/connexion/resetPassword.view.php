@@ -10,27 +10,12 @@
 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        
-       
       </div>
-      
-      
-  <div class="col-12 mt-5">
+      <div class="col-12 mt-5">
     <label for="inputEmail4" class="form-label">Adresse Email : </label>
     <input type="email" class="form-control" id="inputEmail4" name="resetEmail">
   </div> 
-  
-  
-  
-  
-  
-  
-  
-  
- 
-
-      
-      <div class="text-end mx-2 mt-3">
+  <div class="text-end mx-2 mt-3">
       <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmation">Envoyer</button>
       </div>
 

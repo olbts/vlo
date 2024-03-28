@@ -72,6 +72,4 @@ class Verification {
         return $value1 == $value2;
     }
 }
-
-
-
+$verif = new Verification();

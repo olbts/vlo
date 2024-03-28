@@ -2,7 +2,6 @@
     <h1 class="text-danger">Admin</h1>
 </div>
 <div class="adminPanel">
-    
     <form action="index.php?page=/admin" method="post">
     <label for="">Login</label><br>
     <input name ="login" type="text"><br><br>
@@ -11,10 +10,3 @@
     <input type="submit" value="Connexion">
 </form>
  
-<!-- <style>
-    .adminPanel{
-        display: flex;
-        justify-content: center;
-        align-content: center;
-    }
-</style> -->

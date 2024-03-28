@@ -2,17 +2,16 @@
 
 $page = "/displayCart";
 $title = "panier";
-$panier =  new Article();
 require "models/panier.php";
 require "models/livre.php";
 require "models/boutique.php";
+$panier =  new Article();
 if (estConnecte()){
     $panier->setArticles(getAllPanier($_SESSION["email"],$db));
     $prixtotal = getPrixPanier($_SESSION["email"],$db);
     $_SESSION["nb_panier"] = taillePanier($_SESSION["email"],$db);
 }
 else{
-    
     $allPanier = array();
     $prixtotal = 0;
     foreach ($_SESSION['panier'] as $key => $session_panier) {
@@ -22,12 +21,7 @@ else{
         $little_panier["prixtotal"] = $session_panier["qte"] * $little_panier["prix"];
         $allPanier[] = $little_panier;
     }
-    
-  $panier->setArticles($allPanier);
-  
-
-  
+    $panier->setArticles($allPanier);
 }
 $boutiques = getAllBoutique($db);
-// dd($boutiques);
 require "views/cart/displayCart.view.php";

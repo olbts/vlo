@@ -10,7 +10,6 @@
                 <div class="row ">
                     <h4 class="mb-3">Adresse mail : <?=$_SESSION["email"]?></h4>
                     <h6>Modifier le mot de passe :</h6>
-                    
                     <form action="" method="post">
                         <input type="hidden" name="updatePassword" value="updatePassword">
                         <label for="">Mot de passe actuel :</label>
@@ -18,10 +17,7 @@
                         <label for="">Nouveau mot de passe :</label>
                         <input type="text" name="newPassword">
                         <p class=<?= $info[0]?>><?= $info[1]?></p>
-                       
-                        
-                        
-                        <button type="submit" class="btn btn-success">Modifier</button>
+                       <button type="submit" class="btn btn-success">Modifier</button>
                     </form>
                 </div>
                 <div class="row mt-5">

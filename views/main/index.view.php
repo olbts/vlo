@@ -50,31 +50,6 @@
     
     </div>
     </div>
-<!-- <style>
-    .productImg{
-       
-        width :100%;
-        height : 220px;
-        display : flex; 
-        align-items: center;
-      
-        justify-content : center;
-        overflow: hidden;
-        padding : 0;
-        
-    }
-    
-    
-    .selfImg{
-        padding:0;
-        margin : 0;
-       
-        width: fit-content;
-        height : 100%;
-        height : fit-content;
-        
-    }
-</style> -->
     
    
     
