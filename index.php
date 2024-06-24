@@ -4,6 +4,7 @@ require "Verification.php";
 require "Article.php";
 require "functions.php";
 require "routes.php";
+
 session_start();
 sessionIni();
 $db = databaseIni();

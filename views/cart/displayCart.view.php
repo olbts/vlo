@@ -24,7 +24,14 @@
                         <td><?= $produit["titre"]?></td>
                         <td><?= $produit["auteur"] ?></td>
                         <td><form action="index.php?page=/updateCart" method="post" class="allQteForm" ><input min="1" max="5"   type="number" name="qte" value="<?= $produit["qte"] ?>" class="allQte"><input type="hidden" name="isbn"  value="<?= $produit["isbn"] ?>"></form></td>
-                        <td><span><?= $produit["prixtotal"] ?></span>$</td>
+                        <td><span><?php 
+                        if(isset(($_SESSION["anniversaire"]))&& $_SESSION["anniversaire"] == true){
+                          echo $produit["prixtotal"] * 0.75 ;
+                        }
+                        else{
+                          echo $produit["prixtotal"] ;
+                        }
+                        ?></span>$</td>
                         <td><form action="index.php?page=/destroyCart" method="post">
                           <input type="hidden" name="isbn" value ="<?= $produit["isbn"]?>">
                         <input type="submit" value="X" class="btn btn-outline-danger">

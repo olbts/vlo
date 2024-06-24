@@ -8,7 +8,12 @@ require "models/boutique.php";
 $panier =  new Article();
 if (estConnecte()){
     $panier->setArticles(getAllPanier($_SESSION["email"],$db));
-    $prixtotal = getPrixPanier($_SESSION["email"],$db);
+    if(isset($_SESSION["anniversaire"])){
+        $prixtotal = getPrixPanier($_SESSION["email"],$db) * 0.75;}
+        else{
+            $prixtotal = getPrixPanier($_SESSION["email"],$db);
+        }
+    
     $_SESSION["nb_panier"] = taillePanier($_SESSION["email"],$db);
 }
 else{

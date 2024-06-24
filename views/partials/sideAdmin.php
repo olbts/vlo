@@ -1,6 +1,8 @@
 
 <a href="index.php?page=/listeRetrait" ><h5>Liste commandes</h5></a>
     <hr>
+<a href="index.php?page=/listeClient" ><h5>Liste clients</h5></a>
+    <hr>
 <?php if ($_SESSION["admin"] == "gerant") { ?>
     <a href="index.php?page=/listeLivre"><h5>Liste livres</h5></a>
 <hr>

@@ -31,7 +31,11 @@
 
 
 <?php endif; ?>
+ 
 <div class="container">
+<h3 class="bg-success text-info text-center">
+        <?php if(isset($_SESSION["anniversaire"]) && $_SESSION["anniversaire"] == true){ echo "Happy Birthday !";}?>
+    </h3>
 
 
 

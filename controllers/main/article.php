@@ -31,6 +31,9 @@ if(isset($_POST["isbn"])){
 }
 $isbn = $_GET["isbn"] ;
 $article = getLivre($_GET["isbn"],$db);
+if(isset($_SESSION["anniversaire"])&& $_SESSION["anniversaire"] == true){
+    
+$article["prix"] = $article["prix"] * 0.75;}
 if(empty($article["isbn"])){
     replace("/");
 }

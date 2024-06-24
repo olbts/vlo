@@ -32,4 +32,7 @@ $adminRoutes = [
     "/listeLivre"      =>    "controllers/admin/listeLivre.php",
     "/listeRetrait"    =>    "controllers/admin/listeRetrait.php",
     "/listeAuteur"     =>    "controllers/admin/listeAuteur.php",
+    "/listeClient"     =>    "controllers/admin/listeClient.php",
+    "/detailClient"     =>    "controllers/admin/detailClient.php",
+    
 ];

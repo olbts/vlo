@@ -6,11 +6,14 @@
             <?php require "views/partials/sideAdmin.php"?>
         </div>
         <div class="col-md-6 col-12 border border-info p-2">
-        
+        <?php if(isset($banner)): ?>
+                <h3 class="text-center text-danger"><?= $banner ?></h3>
+            <?php endif; ?>
             <div class="row">
+
                         <div class="col-md-6 col-12">
                         
-                        <form action="index.php?page=/modifierLivre" method="post">
+                        <form action="index.php?page=/modifierLivre" method="post" enctype="multipart/form-data">
                         <input   value="<?=$livre["isbn"]?>" id="isbn" name="isbn" type="hidden">
                             <label for="isbn">Isbn :</label><br><input disabled  value="<?=$livre["isbn"]?>" id="isbn" name="isbn" type="text"><br><br>
                             <label for="titre">Titre :</label><br><input value="<?=$livre["titre"]?>" id="titre" name="titre" type="text"><br><br>
@@ -19,15 +22,36 @@
                             <label for="prix">Prix</label><br><input value="<?=$livre["prix"]?>" id="prix" name="prix" type="text"><br><br>
                         </div>
                         <div class="col-md-6 col-12">
+                        <label for="file">Fichier :</label><br>
+                                <input type="file" name="file" value='<?= $currentFichier ??""?>'><br><br>
                             <label for="description">Description :</label><br><textarea id="description" name="description"  cols="30" rows="3"> <?=$livre["description"]?></textarea><br><br>
-                            <p>Nombre d'auteurs : </p> <select name="" id="nb_auteur">
+                            <!--<p>Nombre d'auteurs : </p> <select name="" id="nb_auteur">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                             </select>
                             <div id="auteurs"class="auteurs">
                             <label for="nom_auteur">Nom auteur :</label><br><input value="<?=$nom_auteur?>" type="text" id="nom_auteur" name="nom_auteur"><br><br><label for="prenom_auteur">Prénom auteur :</label><br><input value="<?=$prenom_auteur?>" type="text" id="prenom_auteur" name="prenom_auteur"><br><br>
-                            </div>
+                            </div>-->
+                            
+                            <label for="auteur">Nombre d'auteurs :</label>
+                                <select name="" id="nbAuteur">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            
+                            
+                                    <select name="auteur[]" id="auteur">
+                                    <div id="inputAuteur" >
+                                        <?php foreach ($auteurs as  $auteur) : ?>
+                                            <option value="<?=$auteur["id_auteur"]?>"><?=$auteur["nom"]?> <?=$auteur["prenom"]?></option>
+                                        <?php endforeach ?>
+                                        </div>
+                                    </select>
+                            
+                            
+                            
                             <label for="style">Style :</label><br>
                             <select value="<?=$livre["style"]?>" name="style" id="style">
                                 <?php foreach ($styles as  $style) : ?>
@@ -35,7 +59,8 @@
                                 <?php endforeach ?>
                             </select><br><br>
                             <button type="submit">Modifier</button>
-                        </div>
+                            </div>
+                    
             </div>
         </div>
         <div class="col-md-3 col-0">
@@ -47,7 +72,7 @@
 
             
        
-        <script>
+   <!--     <script>
             const nombre = document.querySelector("#nb_auteur");
             const auteurs =document.querySelector("#auteurs");
             
@@ -69,4 +94,22 @@
   }
 });
 
-        </script>
+        </script>-->
+        <script>
+    const nbAuteur = document.querySelector("#nbAuteur");
+    nbAuteur.value = 1
+    const inputAuteur = document.querySelector("#inputAuteur");
+    const originalText = inputAuteur.innerHTML;
+    inputAuteur.innerHTML = "Auteur : " + originalText
+    nbAuteur.addEventListener("change",()=>{
+        const nb = nbAuteur.value;
+        inputAuteur.innerHTML =""
+        if (nb > 1) {
+            for (let i = 0; i < nb; i++) {
+            inputAuteur.innerHTML = inputAuteur.innerHTML + "Auteur "+(i +1)+":"+ originalText +"<br>"
+            }
+        }else {
+            inputAuteur.innerHTML = "Auteur : " + originalText
+        }
+    })
+</script>

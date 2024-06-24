@@ -11,6 +11,7 @@ if (isset($_POST["updatePassword"])) {
         $info = ['text-danger' ,'8 caracteres minimum, dont une majuscule,une minuscule,un chiffre et un caractere special'];
     }
     else{
+        
         $client = getClient($_SESSION["email"],$db);
         
         if (password_verify($_POST["oldPassword"],$client["password"])) {
@@ -24,6 +25,21 @@ if (isset($_POST["updatePassword"])) {
         }
     }
 }
+elseif (isset($_POST["infos"])) {
+   
+    updateClientInfos($_SESSION["email"],$_POST["nom"],$_POST["prenom"],$_POST["dob"],$_POST["adresse"],$db);
+    $info = ["text-success" , "Infomartions personnelles modifiées !"];
+    $time = strtotime($_POST["dob"]);
+    //dd(date('m-d') == date('m-d', $time));
+    if(date('m-d') == date('m-d', $time)) {
+            
+        $_SESSION["anniversaire"] = true;
+    }
+    else{
+        $_SESSION["anniversaire"] = false;
+    }
+}
+$infos =getClient($_SESSION["email"],$db);
 $commentaires = new Article();
 $commentaires->setArticles(getCommentairesEmail($_SESSION["email"],$db));
 require "views/compte/compte.view.php";

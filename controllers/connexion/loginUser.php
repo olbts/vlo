@@ -19,6 +19,17 @@ if (isset($_POST["email"])&&isset($_POST["password"])) {
         }
         else if (password_verify($_POST["password"],$client["password"])) {
             $_SESSION["email"] = $client["email"];
+            $time = strtotime($client["dob"]);
+        //dd( date('m-d', $time));
+        $_SESSION["anniversaire"] = false;
+        if(date('m-d') == date('m-d', $time)) {
+                
+            $_SESSION["anniversaire"] = true;
+        }
+        else{
+            $_SESSION["anniversaire"] = false;
+        }
+            //dd($client["dob"]);
             foreach ($_SESSION["panier"] as $panier) {
                     insertPanier($client["email"],$panier["isbn"],$panier["qte"],$db);
                 }

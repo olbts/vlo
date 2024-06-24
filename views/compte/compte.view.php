@@ -9,14 +9,30 @@
                 <h3 class="text-info center mb-4">Informations compte</h3>
                 <div class="row ">
                     <h4 class="mb-3">Adresse mail : <?=$_SESSION["email"]?></h4>
-                    <h6>Modifier le mot de passe :</h6>
+                    
                     <form action="" method="post">
+                    <h6>Modifier le mot de passe :</h6>
+                        
                         <input type="hidden" name="updatePassword" value="updatePassword">
                         <label for="">Mot de passe actuel :</label>
                         <input type="text" name="oldPassword">
                         <label for="">Nouveau mot de passe :</label>
                         <input type="text" name="newPassword">
-                        <p class=<?= $info[0]?>><?= $info[1]?></p>
+                        
+                        <button type="submit" class="btn btn-success">Modifier</button>
+                    </form>
+                    <p class=<?= $info[0]?>><?= $info[1]?></p>
+                    <form action="" method="post">
+                    <h6>Informations personnelles :</h6>
+                    <input type="hidden" name="infos">
+                        <label for="">Nom :</label>
+                        <input type="text" name="nom" value='<?= $infos["nom"] ??""?>'>
+                        <label for="">Prenom :</label>
+                        <input type="text" name="prenom" value='<?= $infos["prenom"] ??""?>'><br>
+                        <label for="">Adresse :</label>
+                        <input type="text" name="adresse" value='<?= $infos["adresse"] ??""?>'>
+                        <label for="">Date de naissance :</label>
+                        <input type="date" name="dob" value='<?= $infos["dob"] ??""?>'><br>
                        <button type="submit" class="btn btn-success">Modifier</button>
                     </form>
                 </div>
